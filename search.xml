@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2019/03/21/hello-world/"/>
-      <url>/2019/03/21/hello-world/</url>
+      <title>小废的Introduction</title>
+      <link href="/2019/01/21/%E5%B0%8F%E5%BA%9F%E7%9A%84Introduction/"/>
+      <url>/2019/01/21/%E5%B0%8F%E5%BA%9F%E7%9A%84Introduction/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>起初从同学那里了解到hexo以后，就一直有一个建站的念头，一个专属于自己的博客网站，这应该是我现下最想完成的一件事情吧，所以借着这次假期的机会，我依照着教程搭建了现在的小废在不在、。</p><p>目前的样式还基本上与范例没有多大的差别，所以需要后期自己的自主学习使他拥有自己的个性，就像看到前辈们指出的那样，如果发现有同一主题出现在两个博客网站里，就要开始筹措着换点新花样使其与众不同。</p><a id="more"></a><p>建立这个网站的初衷其实不单只是练练手而已，这个网站基本上也会伴随着我一直走下去，会不断的通过学习去增加新的功能，去丰富完善界面，当然，这今后也将作为我随时更新自己生活学习娱乐记录的处所，算是自己私人的小小空间吧。</p><p>就说这么多吧，一切都有待自己去实践才有说服力，希望自己真的能对得起自己最初的梦想。</p><p>加油，我是小废，我要走的路还有很长很长，以上。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
       
     </entry>
     
