@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>课前准备—认识XML</title>
+      <link href="/2019/01/26/%E8%AF%BE%E5%89%8D%E5%87%86%E5%A4%87%E2%80%94%E8%AE%A4%E8%AF%86XML/"/>
+      <url>/2019/01/26/%E8%AF%BE%E5%89%8D%E5%87%86%E5%A4%87%E2%80%94%E8%AE%A4%E8%AF%86XML/</url>
+      
+        <content type="html"><![CDATA[<h4 id="认识XML"><a href="#认识XML" class="headerlink" title="认识XML"></a>认识XML</h4><p>XML是对HTML的补充,它不会替代 HTML,在大多数Web应用程序中,XML用于传输数据,而HTML用于格式化并显示数据。</p><p>XML是独立于软件和硬件的信息传输工具。(以纯文本格式进行存储)</p><p>XML指可扩展标记语言（eXtensible Markup Language）,XML被设计用来传输和存储数据。</p><p>XML标签没有被预定义,您需要自行定义标签。</p><h4 id="XML把数据从HTML分离"><a href="#XML把数据从HTML分离" class="headerlink" title="XML把数据从HTML分离"></a>XML把数据从HTML分离</h4><p>如果您需要在HTML文档中显示动态数据,那么每当数据改变时将花费大量的时间来编辑HTML。</p><p>通过XML,数据能够存储在独立的XML文件中。这样您就可以专注于使用HTML/CSS进行显示和布局,并确保修改底层数据不再需要对HTML进行任何的改变。</p><p>通过使用几行JavaScript代码,您就可以读取一个外部XML文件,并更新您的网页的数据内容。</p><h4 id="XML树结构"><a href="#XML树结构" class="headerlink" title="XML树结构"></a>XML树结构</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span><br><span class="line">&lt;note&gt;</span><br><span class="line">&lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">&lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget me this weekend!&lt;/body&gt;</span><br><span class="line">&lt;/note&gt;</span><br></pre></td></tr></table></figure><p>第一行是XML声明。它定义XML的版本（1.0）和所使用的编码（ISO-8859-1=Latin-1/西欧字符集）。</p><p>下一行描述文档的根元素<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;note&gt;</span><br></pre></td></tr></table></figure></p><p>接下来4行描述根的4个子元素<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">&lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget me this weekend!&lt;/body&gt;</span><br></pre></td></tr></table></figure></p><p>最后一行定义根元素的结尾：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;/note&gt;</span><br></pre></td></tr></table></figure></p><p>总结就是,XML文档必须包含根元素。该元素是所有其他元素的父元素。XML文档中的元素形成了一棵文档树。这棵树从根部开始,并扩展到树的最底端。所有的元素都可以有子元素：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;root&gt;</span><br><span class="line">&lt;child&gt;</span><br><span class="line">&lt;subchild&gt;.....&lt;/subchild&gt;</span><br><span class="line">&lt;/child&gt;</span><br><span class="line">&lt;/root&gt;</span><br></pre></td></tr></table></figure></p><p>所有的元素都可以有文本内容和属性（类似 HTML 中）。</p><h4 id="XML-语法规则"><a href="#XML-语法规则" class="headerlink" title="XML 语法规则"></a>XML 语法规则</h4><p>在HTML中,某些元素不必有一个关闭标签：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;This is a paragraph.</span><br><span class="line">&lt;br&gt;</span><br></pre></td></tr></table></figure></p><p>在XML中,省略关闭标签是非法的。所有元素都必须有关闭标签：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;p&gt;This is a paragraph.&lt;/p&gt;</span><br></pre></td></tr></table></figure></p><p>XML标签对大小写敏感。</p><p>在HTML中,常会看到没有正确嵌套的元素：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;&lt;i&gt;This text is bold and italic&lt;/b&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure></p><p>在XML中，所有元素都必须彼此正确地嵌套：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;&lt;i&gt;This text is bold and italic&lt;/i&gt;&lt;/b&gt;</span><br></pre></td></tr></table></figure></p><p>XML文档必须有根元素。</p><p>XML 属性值必须加引号。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;note date=&quot;12/11/2007&quot;&gt;</span><br><span class="line">&lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">&lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">&lt;/note&gt;</span><br></pre></td></tr></table></figure></p><p>实体引用.</p><p><img src="https://fjken.top/img/addition/xml.jpg" alt="image"></p><p>注释：在XML中,只有字符”&lt;”和”&amp;”确实是非法的。大于号是合法的,但是用实体引用来代替它是一个好习惯。XML中的注释<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- something code --&gt;</span><br></pre></td></tr></table></figure></p><p>在XML中,文档中的空格不会被删减。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xml </tag>
+            
+            <tag> C# </tag>
+            
+            <tag> WPF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>小废的Introduction</title>
       <link href="/2019/01/21/%E5%B0%8F%E5%BA%9F%E7%9A%84Introduction/"/>
       <url>/2019/01/21/%E5%B0%8F%E5%BA%9F%E7%9A%84Introduction/</url>
