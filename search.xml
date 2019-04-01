@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Python基础学习笔记-1</title>
+      <link href="/2019/04/01/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/"/>
+      <url>/2019/04/01/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="IPython的使用"><a href="#IPython的使用" class="headerlink" title="IPython的使用"></a>IPython的使用</h3><p>可以通过命令行(cmd)窗口键入ipython进入ipython解释器</p><p>其中可以使用 <code>?</code> 来查看函数的帮助<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sum?</span><br></pre></td></tr></table></figure></p><p>或在导入包以后使用<code>??</code>查看函数帮助和函数源代码.<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 导入numpy和matplotlib两个包</span><br><span class="line">%pylab</span><br><span class="line"># 查看其中sort函数的帮助</span><br><span class="line">sort??</span><br></pre></td></tr></table></figure></p><p><strong>！！！以下代码无特别说明均默认在IPython的解释器下运行！！！</strong></p><h3 id="Anaconda-conda-的使用"><a href="#Anaconda-conda-的使用" class="headerlink" title="Anaconda(conda)的使用"></a>Anaconda(conda)的使用</h3><p>Anaconda是一个很好用的Python IDE，它集成了很多科学计算需要使用的python第三方工具包。</p><p>可以通过<code>!conda list</code>查询已经安装好的python第三方工具包。(注：IPython中使用<code>！</code>来调用系统命令)</p><p>对于 Anaconda 自身，可以在命令行(cmd)输入以下命令使其保持最新：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update conda</span><br><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></p><p>安装，更新，卸载第三方的 python 工具包：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install &lt;some package&gt;</span><br><span class="line">conda update &lt;some package&gt;</span><br><span class="line">conda remove &lt;some package&gt;</span><br></pre></td></tr></table></figure></p><p>在安装或更新时可以指定安装的版本号，例如需要使用 <code>numpy 1.8.1</code>：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install numpy=1.8.1</span><br><span class="line">conda update numpy=1.8.1</span><br></pre></td></tr></table></figure></p><p>在命令行(cmd)下可以使用 conda 产生一个新的环境(命名任意，这里这个环境被命名为 xxx )：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n xxx python=3.7</span><br></pre></td></tr></table></figure></p><p>使用这个环境时，只需要命令行下输入：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate xxx</span><br></pre></td></tr></table></figure></p><p>即可实现环境的切换。</p><p>Anaconda 默认使用的编辑器是 spyder，可以在命令行下输入<code>spyder</code>进入。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python数据分析[2]</title>
       <link href="/2019/03/29/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-2/"/>
       <url>/2019/03/29/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-2/</url>
