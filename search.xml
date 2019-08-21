@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>[Leetcode]15.3Sum</title>
+      <link href="/2019/08/21/Leetcode-15-3Sum/"/>
+      <url>/2019/08/21/Leetcode-15-3Sum/</url>
+      
+        <content type="html"><![CDATA[<h1 id="15-3Sum"><a href="#15-3Sum" class="headerlink" title="#15. 3Sum"></a>#15. 3Sum</h1><ul><li>难度：中等</li><li><p>题目描述：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</span><br><span class="line"></span><br><span class="line">注意：答案中不可以包含重复的三元组。</span><br></pre></td></tr></table></figure></li><li><p>样例：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，</span><br><span class="line"></span><br><span class="line">满足要求的三元组集合为：</span><br><span class="line">[</span><br><span class="line">  [-1, 0, 1],</span><br><span class="line">  [-1, -1, 2]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h3></li><li>思路：先确立一个目标的匹配值，然后在后续的数组中寻找两个组合之和为目标匹配值的相反数。对于后续两个组合的搜索，盲目的进行组合因为O(n^2)的关系显然不可取，所以可以通过对有序数组以双指针的方式来以线性时间的复杂度来遍历所有满足题意的两个数组合，所以需要对所给数组先进行一次顺序排序。</li><li>说明：为了更加优化算法，可以进行剪枝操作，首先对数组进行初步筛选，empty与size()&lt;2的优先不予考虑，然后若排序后最后一位&lt;0或第一位&gt;0，也代表该数组不符合考虑范畴。然后当我们进行判断的过程中，当目标匹配对象&gt;0时视为退出条件，因为若目标匹配值&gt;0，则后续的两数组合之和无法得到其相反数。最后还要注意的一点，就是筛选组合的过程中，对于重复的值应当进行跳步处理，避免得到重复结论。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">** time: O(nlogn) 快排nlogn + 搜索n</span><br><span class="line">*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; result;</span><br><span class="line">        sort(nums.begin(),nums.end());</span><br><span class="line">        if(nums.empty()||nums.back()&lt;0||nums.front()&gt;0||nums.size()&lt;2) return &#123;&#125;;</span><br><span class="line">        for(int i=0;i&lt;nums.size()-2;i++)&#123;</span><br><span class="line">            if(nums[i]&gt;0) break;</span><br><span class="line">            if(i&gt;0&amp;&amp;nums[i]==nums[i-1]) continue;</span><br><span class="line">            int target = 0 - nums[i];</span><br><span class="line">            int left = i+1 , right = nums.size()-1;</span><br><span class="line">            while(left&lt;right)&#123;</span><br><span class="line">                int sum = nums[left]+nums[right];</span><br><span class="line">                if(sum==target)&#123;</span><br><span class="line">                    result.push_back(&#123;nums[i],nums[left],nums[right]&#125;);</span><br><span class="line">                    while(left&lt;right&amp;&amp;nums[left]==nums[left+1]) left++;</span><br><span class="line">                    while(left&lt;right&amp;&amp;nums[right]==nums[right-1]) right--;</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">                else if(sum&lt;target) left++;</span><br><span class="line">                else right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><p><img src="https://i.loli.net/2019/08/21/virlf49hnTFLGSQ.jpg" alt="15.3Sum(C++)"></p><h3 id="方法二-TreeSet去重法"><a href="#方法二-TreeSet去重法" class="headerlink" title="方法二: TreeSet去重法"></a>方法二: TreeSet去重法</h3><ul><li>思路：可以利用 TreeSet 的不能包含重复项的特点来防止重复项的产生，那么就不需要检测数字是否被 fix 过两次,其余思路基本同上<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        set&lt;vector&lt;int&gt;&gt; res;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        if (nums.empty() || nums.back() &lt; 0 || nums.front() &gt; 0) return &#123;&#125;;</span><br><span class="line">        for (int k = 0; k &lt; (int)nums.size()-2; ++k) &#123;</span><br><span class="line">            if (nums[k] &gt; 0) break;</span><br><span class="line">            int target = 0 - nums[k], left = k + 1, right = (int)nums.size() - 1;</span><br><span class="line">            while (left &lt; right) &#123;</span><br><span class="line">                if (nums[left] + nums[right] == target) &#123;</span><br><span class="line">                    res.insert(&#123;nums[k], nums[left], nums[right]&#125;);</span><br><span class="line">                    while (left &lt; right &amp;&amp; nums[left] == nums[left + 1]) ++left;</span><br><span class="line">                    while (left &lt; right &amp;&amp; nums[right] == nums[right - 1]) --right;</span><br><span class="line">                    ++left; --right;</span><br><span class="line">                &#125; else if (nums[left] + nums[right] &lt; target) ++left;</span><br><span class="line">                else --right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return vector&lt;vector&lt;int&gt;&gt;(res.begin(), res.end());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[LeetCode]167.Two Sum II-Input array is sorted</title>
       <link href="/2019/08/21/LeetCode-167-Two-Sum-II-Input-array-is-sorted/"/>
       <url>/2019/08/21/LeetCode-167-Two-Sum-II-Input-array-is-sorted/</url>
