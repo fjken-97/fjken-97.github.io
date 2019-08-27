@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>[Leetcode]2.Add Two Numbers</title>
+      <link href="/2019/08/27/Leetcode-2-Add-Two-Numbers/"/>
+      <url>/2019/08/27/Leetcode-2-Add-Two-Numbers/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2-Add-Two-Numbers"><a href="#2-Add-Two-Numbers" class="headerlink" title="#2.Add Two Numbers"></a>#2.Add Two Numbers</h1><ul><li>难度：中等</li><li><p>题目描述：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</span><br><span class="line"></span><br><span class="line">如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</span><br><span class="line"></span><br><span class="line">您可以假设除了数字 0 之外，这两个数都不会以 0 开头</span><br></pre></td></tr></table></figure></li><li><p>样例：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">输出：7 -&gt; 0 -&gt; 8</span><br><span class="line">原因：342 + 465 = 807</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h3></li><li>思路: 创建一个新的链表用于两链表 value 相加结果</li><li>说明: 注意两链表的判空操作，若为空则默认其值为 0 ，且在后续不再进行指针的移位，最后对于进位符 carry 需要进行一次判断，若进位存在而相加结束，则需将进位 (1) 作数最高位。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode* add2 = new ListNode(-1),*cur = add2;</span><br><span class="line">        int carry = 0;</span><br><span class="line">        while (l1 || l2) &#123;</span><br><span class="line">            int val1 = l1?l1-&gt;val:0; </span><br><span class="line">            int val2 = l2?l2-&gt;val:0; </span><br><span class="line">            int sum = val1 + val2 + carry;</span><br><span class="line">            carry = sum / 10;</span><br><span class="line">            cur-&gt;next = new ListNode(sum % 10);</span><br><span class="line">            if(l1) l1 = l1-&gt;next;</span><br><span class="line">            if(l2) l2 = l2-&gt;next;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(carry) cur-&gt;next = new ListNode(carry);</span><br><span class="line">        return add2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><p><img src="https://i.loli.net/2019/08/27/H75BpQZA3SN8olO.jpg" alt="2.Add Two Numbers"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]16.3Sum Closest</title>
       <link href="/2019/08/27/Leetcode-16-3Sum-Closest/"/>
       <url>/2019/08/27/Leetcode-16-3Sum-Closest/</url>
