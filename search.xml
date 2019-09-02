@@ -35,7 +35,7 @@
     
     
     <entry>
-      <title>[Leetcode]4.Median of Two Sorted Arrays</title>
+      <title>[Leetcode]4.Median of Two Sorted Arrays(寻找两个有序数组的中位数)</title>
       <link href="/2019/09/01/Leetcode-4-Median-of-Two-Sorted-Arrays/"/>
       <url>/2019/09/01/Leetcode-4-Median-of-Two-Sorted-Arrays/</url>
       
@@ -68,7 +68,7 @@
     
     
     <entry>
-      <title>[Leetcode]290.Word Pattern</title>
+      <title>[Leetcode]290.Word Pattern(单词规律)</title>
       <link href="/2019/08/31/Leetcode-290-Word-Pattern/"/>
       <url>/2019/08/31/Leetcode-290-Word-Pattern/</url>
       
@@ -97,7 +97,7 @@
     
     
     <entry>
-      <title>[Leetcode]205.Isomorphic Strings</title>
+      <title>[Leetcode]205.Isomorphic Strings(同构字符串)</title>
       <link href="/2019/08/31/Leetcode-205-Isomorphic-Strings/"/>
       <url>/2019/08/31/Leetcode-205-Isomorphic-Strings/</url>
       
@@ -126,7 +126,7 @@
     
     
     <entry>
-      <title>[Leetcode]3.Longest Substring Without Repeating Characters</title>
+      <title>[Leetcode]3.Longest Substring Without Repeating Characters(无重复字符的最长子串)</title>
       <link href="/2019/08/30/Leetcode-3-Longest-Substring-Without-Repeating-Characters/"/>
       <url>/2019/08/30/Leetcode-3-Longest-Substring-Without-Repeating-Characters/</url>
       
@@ -144,11 +144,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 哈希表 </tag>
+            
             <tag> 双指针 </tag>
             
             <tag> Medium </tag>
-            
-            <tag> 哈希表 </tag>
             
             <tag> 字符串 </tag>
             
@@ -159,7 +159,7 @@
     
     
     <entry>
-      <title>[Leetcode]43.Multiply Strings</title>
+      <title>[Leetcode]43.Multiply Strings(字符串相乘)</title>
       <link href="/2019/08/28/Leetcode-43-Multiply-Strings/"/>
       <url>/2019/08/28/Leetcode-43-Multiply-Strings/</url>
       
@@ -184,7 +184,7 @@
     
     
     <entry>
-      <title>[Leetcode]415.Add Strings</title>
+      <title>[Leetcode]415.Add Strings(字符串相加)</title>
       <link href="/2019/08/28/Leetcode-415-Add-Strings/"/>
       <url>/2019/08/28/Leetcode-415-Add-Strings/</url>
       
@@ -213,7 +213,7 @@
     
     
     <entry>
-      <title>[Leetcode]2.Add Two Numbers</title>
+      <title>[Leetcode]2.Add Two Numbers(两数相加)</title>
       <link href="/2019/08/27/Leetcode-2-Add-Two-Numbers/"/>
       <url>/2019/08/27/Leetcode-2-Add-Two-Numbers/</url>
       
@@ -233,9 +233,9 @@
             
             <tag> Medium </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> 数学 </tag>
+            
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -244,7 +244,7 @@
     
     
     <entry>
-      <title>[Leetcode]16.3Sum Closest</title>
+      <title>[Leetcode]16.3Sum Closest(最接近的三数之和)</title>
       <link href="/2019/08/27/Leetcode-16-3Sum-Closest/"/>
       <url>/2019/08/27/Leetcode-16-3Sum-Closest/</url>
       
@@ -275,7 +275,7 @@
     
     
     <entry>
-      <title>[Leetcode]653.TwoSum-IV-Input-is-a-BST</title>
+      <title>[Leetcode]653.TwoSum-IV-Input-is-a-BST(两数之和IV-输入BST)</title>
       <link href="/2019/08/22/Leetcode-653-TwoSum-IV-Input-is-a-BST/"/>
       <url>/2019/08/22/Leetcode-653-TwoSum-IV-Input-is-a-BST/</url>
       
@@ -304,7 +304,7 @@
     
     
     <entry>
-      <title>[Leetcode]15.3Sum</title>
+      <title>[Leetcode]15.3Sum(三数之和)</title>
       <link href="/2019/08/21/Leetcode-15-3Sum/"/>
       <url>/2019/08/21/Leetcode-15-3Sum/</url>
       
@@ -322,9 +322,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 双指针 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 双指针 </tag>
             
             <tag> Medium </tag>
             
@@ -335,7 +335,7 @@
     
     
     <entry>
-      <title>[Leetcode]167.Two Sum II-Input array is sorted</title>
+      <title>[Leetcode]167.Two Sum II-Input array is sorted(两数之和II-输入有序数组)</title>
       <link href="/2019/08/21/Leetcode-167-Two-Sum-II-Input-array-is-sorted/"/>
       <url>/2019/08/21/Leetcode-167-Two-Sum-II-Input-array-is-sorted/</url>
       
@@ -353,11 +353,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 双指针 </tag>
-            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
+            
+            <tag> 双指针 </tag>
             
             <tag> 二分查找 </tag>
             
@@ -368,7 +368,7 @@
     
     
     <entry>
-      <title>[Leetcode]1.Tow Sum</title>
+      <title>[Leetcode]1.Tow Sum(两数之和)</title>
       <link href="/2019/08/20/Leetcode-1-Tow-Sum/"/>
       <url>/2019/08/20/Leetcode-1-Tow-Sum/</url>
       
