@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>[Leetcode]104.Maximum Depth of Binary Tree(二叉树的最大深度)</title>
+      <link href="/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/"/>
+      <url>/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="104-Maximum-Depth-of-Binary-Tree-二叉树的最大深度"><a href="#104-Maximum-Depth-of-Binary-Tree-二叉树的最大深度" class="headerlink" title="#104.Maximum Depth of Binary Tree(二叉树的最大深度)"></a>#104.Maximum Depth of Binary Tree(二叉树的最大深度)</h1><ul><li>难度: 简单</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给定一个二叉树，找出其最大深度。</span><br><span class="line"></span><br><span class="line">二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</span><br><span class="line"></span><br><span class="line">说明: 叶子节点是指没有子节点的节点。</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例：</span><br><span class="line">给定二叉树 [3,9,20,null,null,15,7]，</span><br><span class="line">    3</span><br><span class="line">   / \</span><br><span class="line">  9  20</span><br><span class="line">    /  \</span><br><span class="line">   15   7</span><br><span class="line">返回它的最大深度 3 。</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一-深度优先搜索"><a href="#方法一-深度优先搜索" class="headerlink" title="方法一(深度优先搜索):"></a>方法一(深度优先搜索):</h3></li><li>思路: 求二叉树的最大深度问题,利用深度优先搜索(Depth First Search)，递归解决<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>+max(maxDepth(root-&gt;left),maxDepth(root-&gt;right));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二-层序遍历"><a href="#方法二-层序遍历" class="headerlink" title="方法二(层序遍历):"></a>方法二(层序遍历):</h3><ul><li>思路: 使用层序遍历二叉树，然后计数总层数，即为二叉树的最大深度<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q&#123;&#123;root&#125;&#125;;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            ++res;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=q.size();i&gt;<span class="number">0</span>;--i)&#123;</span><br><span class="line">                TreeNode *t = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">if</span>(t-&gt;left) q.push(t-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(t-&gt;right) q.push(t-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Easy </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+            <tag> 树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Leetcode]题目类型分类整理</title>
+      <link href="/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/"/>
+      <url>/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td>row 1 col 2</td></tr><tr><td>559</td><td>简单</td><td>row 2 col 2</td><td></td></tr></tbody></table></div><h2 id="Tree-树"><a href="#Tree-树" class="headerlink" title="Tree(树)"></a>Tree(树)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数，即得二叉树的最大深度</td><td></td></tr><tr><td>559</td><td>简单</td><td>row 2 col 2</td><td></td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]5.Longest Palindromic Substring(最长回文子串)</title>
       <link href="/2019/09/01/Leetcode-5-Longest-Palindromic-Substring/"/>
       <url>/2019/09/01/Leetcode-5-Longest-Palindromic-Substring/</url>
@@ -179,9 +235,9 @@
             
             <tag> Medium </tag>
             
-            <tag> 数学 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -237,9 +293,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 数学 </tag>
             
@@ -270,9 +326,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
