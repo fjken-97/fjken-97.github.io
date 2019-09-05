@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>[Leetcode]559.Maximum Depth of N-ary</title>
+      <link href="/2019/09/06/Leetcode-559-Maximum-Depth-of-N-ary/"/>
+      <url>/2019/09/06/Leetcode-559-Maximum-Depth-of-N-ary/</url>
+      
+        <content type="html"><![CDATA[<h1 id="559-Maximum-Depth-of-N-ary-Tree-N叉树的最大深度"><a href="#559-Maximum-Depth-of-N-ary-Tree-N叉树的最大深度" class="headerlink" title="#559.Maximum Depth of N-ary Tree(N叉树的最大深度)"></a>#559.Maximum Depth of N-ary Tree(N叉树的最大深度)</h1><ul><li>难度: 简单</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给定一个 N 叉树，找到其最大深度。</span><br><span class="line"></span><br><span class="line">最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。</span><br><span class="line"></span><br><span class="line">例如，给定一个 3叉树 :</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如，给定一个 3叉树 :</span><br></pre></td></tr></table></figure></li></ul><p><img alt="image" data-src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/narytreeexample.png" class="lozad"><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">我们应返回其最大深度，3。</span><br><span class="line"></span><br><span class="line">说明:</span><br><span class="line"></span><br><span class="line">树的深度不会超过 1000。</span><br><span class="line">树的节点总不会超过 5000。</span><br></pre></td></tr></table></figure></p><ul><li>解答：<h3 id="方法一-深度优先搜索"><a href="#方法一-深度优先搜索" class="headerlink" title="方法一(深度优先搜索):"></a>方法一(深度优先搜索):</h3></li><li>思路: 主函数中递归，首先判空，否则遍历子结点数组，然后对每个子结点，调用递归函数的返回值加1后跟res相比，取较大值更新结果res<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    vector&lt;Node*&gt; children;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, vector&lt;Node*&gt; _children) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        children = _children;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(Node* child : root-&gt;children)&#123;</span><br><span class="line">            res = max(res,maxDepth(child)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二-广度优先搜索"><a href="#方法二-广度优先搜索" class="headerlink" title="方法二(广度优先搜索):"></a>方法二(广度优先搜索):</h3><ul><li>思路: 用迭代的形式, 借助队列queue, BFS的经典写法<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    vector&lt;Node*&gt; children;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, vector&lt;Node*&gt; _children) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        children = _children;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;Node*&gt;q&#123;&#123;root&#125;&#125;; <span class="comment">//相当于q.push(root);</span></span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            ++res;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = q.size(); i &gt; <span class="number">0</span>; --i)&#123;</span><br><span class="line">                <span class="keyword">auto</span> node = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> child: node-&gt;children)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(child) q.push(child);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;      </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法三-递归"><a href="#方法三-递归" class="headerlink" title="方法三(递归):"></a>方法三(递归):</h3><ul><li>说明: 常见的递归解法，需要有一个当前深度，然后带一个全局变量 res 进去。在递归函数中，如果 node 为空，直接返回。若子结点数组为空，那么结果 res 和 cur 比较取较大值。否则就遍历子结点数组，对每个子结点调用递归函数，这里的 cur 要自增 1。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        helper(root, <span class="number">1</span>, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">helper</span><span class="params">(Node* node, <span class="keyword">int</span> cur, <span class="keyword">int</span>&amp; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!node) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (node-&gt;children.empty()) res = max(res, cur);</span><br><span class="line">        <span class="keyword">for</span> (Node* child : node-&gt;children) &#123;</span><br><span class="line">            helper(child, cur + <span class="number">1</span>, res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Easy </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+            <tag> 广度优先搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]104.Maximum Depth of Binary Tree(二叉树的最大深度)</title>
       <link href="/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/"/>
       <url>/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</url>
@@ -26,6 +57,8 @@
             
             <tag> 深度优先搜索 </tag>
             
+            <tag> 广度优先搜索 </tag>
+            
             <tag> 树 </tag>
             
         </tags>
@@ -39,7 +72,7 @@
       <link href="/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/"/>
       <url>/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td>row 1 col 2</td></tr><tr><td>559</td><td>简单</td><td>row 2 col 2</td><td></td></tr></tbody></table></div><h2 id="Tree-树"><a href="#Tree-树" class="headerlink" title="Tree(树)"></a>Tree(树)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数，即得二叉树的最大深度</td><td></td></tr><tr><td>559</td><td>简单</td><td>row 2 col 2</td><td></td></tr></tbody></table></div>]]></content>
+        <content type="html"><![CDATA[<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td></td><td><a href>address</a></td></tr></tbody></table></div><h2 id="Tree-树"><a href="#Tree-树" class="headerlink" title="Tree(树)"></a>Tree(树)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>row 2 col 2</td><td></td></tr></tbody></table></div><h2 id="BFS-广度优先搜索"><a href="#BFS-广度优先搜索" class="headerlink" title="BFS(广度优先搜索)"></a>BFS(广度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>广度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td></td><td><a href>address</a></td></tr></tbody></table></div>]]></content>
       
       
       <categories>
@@ -235,9 +268,9 @@
             
             <tag> Medium </tag>
             
-            <tag> 字符串 </tag>
-            
             <tag> 数学 </tag>
+            
+            <tag> 字符串 </tag>
             
         </tags>
       
@@ -293,9 +326,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 链表 </tag>
             
             <tag> 数学 </tag>
             
@@ -326,9 +359,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 链表 </tag>
             
         </tags>
       
