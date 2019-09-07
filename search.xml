@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>[Leetcode]897.Increasing Order Search</title>
+      <link href="/2019/09/07/Leetcode-897-Increasing-Order-Search/"/>
+      <url>/2019/09/07/Leetcode-897-Increasing-Order-Search/</url>
+      
+        <content type="html"><![CDATA[<h1 id="897-Increasing-Order-Search-Tree-递增顺序查找树"><a href="#897-Increasing-Order-Search-Tree-递增顺序查找树" class="headerlink" title="#897.Increasing Order Search Tree(递增顺序查找树)"></a>#897.Increasing Order Search Tree(递增顺序查找树)</h1><ul><li>难度: 简单</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给定一个树，按中序遍历重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例 ：</span><br><span class="line"></span><br><span class="line">输入：[5,3,6,2,4,null,8,1,null,null,null,7,9]</span><br><span class="line"></span><br><span class="line">       5</span><br><span class="line">      / \</span><br><span class="line">    3    6</span><br><span class="line">   / \    \</span><br><span class="line">  2   4    8</span><br><span class="line"> /        / \ </span><br><span class="line">1        7   9</span><br><span class="line"></span><br><span class="line">输出：[1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]</span><br><span class="line"></span><br><span class="line"> 1</span><br><span class="line">  \</span><br><span class="line">   2</span><br><span class="line">    \</span><br><span class="line">     3</span><br><span class="line">      \</span><br><span class="line">       4</span><br><span class="line">        \</span><br><span class="line">         5</span><br><span class="line">          \</span><br><span class="line">           6</span><br><span class="line">            \</span><br><span class="line">             7</span><br><span class="line">              \</span><br><span class="line">               8</span><br><span class="line">                \</span><br><span class="line">                 9  </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">1. 给定树中的结点数介于 1 和 100 之间。</span><br><span class="line">2. 每个结点都有一个从 0 到 1000 范围内的唯一整数值。</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一-递归"><a href="#方法一-递归" class="headerlink" title="方法一(递归):"></a>方法一(递归):</h3></li><li><p>思路: 依题意可知，排序后的结果是一条向右下方延伸的直线，可以发现遍历顺序其实是 左-&gt;根-&gt;右，即中序遍历顺序，当 root 为空时，直接返回空; 当 root 存在左右子结点时，将左子结点上移变为根结点，将之前的根结点连到新根节点的右子结点上，而之前的右子结点不改变。所以对于每个结点，我们需要知道其父结点的位置，那么就在递归函数的参数中传入一个 pre 结点，再对左右子结点调用递归函数时，都将其下一个要连接的结点传入，这个 pre 结点可能是当前结点或者当前结点的父结点。</p><p>  在递归函数中，首先判空，若当前结点为空，直接返回 pre 结点，说明已遍历到叶结点。那么 pre 就是这个叶结点了。由于是中序遍历，所以要先对左子结点调用递归函数，将返回值保存到一个新的结点 res 中，表示的意义是此时 node 的左子树已经全部捋直了，而且根结点就是 res，而且 node 结点本身也被连到了捋直后的左子树下，即此时左子结点和根结点已经完成了交换位子，当然要断开原来的连接，所以将 node-&gt;left 赋值为 nullptr。然后再对 node 的右子结点调用递归函数，注意此时的 pre 不能传入 node 本身，而是要传 node 结点的 pre 结点，这是因为右子结点后面要连接的是 node 的父结点</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">increasingBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(root, <span class="literal">nullptr</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">helper</span><span class="params">(TreeNode* node, TreeNode* pre)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!node) <span class="keyword">return</span> pre;</span><br><span class="line">        TreeNode* res = helper(node-&gt;left, node);</span><br><span class="line">        node-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">        node-&gt;right = helper(node-&gt;right, pre);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二-深度优先搜索"><a href="#方法二-深度优先搜索" class="headerlink" title="方法二(深度优先搜索):"></a>方法二(深度优先搜索):</h3><ul><li>思路: 采用中序遍历的迭代形式，使用栈来辅助。由于根结点可能会产生变化，所以我们需要一个 res 结点，还需要一个移动的 pre 结点。在 while 循环中，先找到最左结点，把路径上的所有结点都压入栈，然后取出栈顶元素，将其连到 pre 的右子结点上，并将 pre 更新为其右子结点，然后断开栈顶元素的左子结点连接，并将其移动到右子结点上，并继续循环，最终返回 res-&gt;right 右子结点即可。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">increasingBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        TreeNode *res = <span class="keyword">new</span> TreeNode(<span class="number">-1</span>),*pre = res;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; st;</span><br><span class="line">        <span class="keyword">while</span>(root||!st.empty())&#123;</span><br><span class="line">            <span class="keyword">while</span>(root)&#123;</span><br><span class="line">                st.push(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root = st.top();</span><br><span class="line">            st.pop();</span><br><span class="line">            pre-&gt;right = root;</span><br><span class="line">            pre = pre-&gt;right;</span><br><span class="line">            root-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">            root = root-&gt;right;            </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> res-&gt;right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Easy </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+            <tag> 树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]559.Maximum Depth of N-ary</title>
       <link href="/2019/09/06/Leetcode-559-Maximum-Depth-of-N-ary/"/>
       <url>/2019/09/06/Leetcode-559-Maximum-Depth-of-N-ary/</url>
@@ -326,9 +357,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 数学 </tag>
             
@@ -359,9 +390,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
