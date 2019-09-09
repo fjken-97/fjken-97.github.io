@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>[Leetcode]121.Best Time to Buy and Sell Stock(买卖股票的最佳时机)</title>
+      <link href="/2019/09/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/"/>
+      <url>/2019/09/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/</url>
+      
+        <content type="html"><![CDATA[<h1 id="121-Best-Time-to-Buy-and-Sell-Stock-买卖股票的最佳时机"><a href="#121-Best-Time-to-Buy-and-Sell-Stock-买卖股票的最佳时机" class="headerlink" title="#121.Best Time to Buy and Sell Stock(买卖股票的最佳时机)"></a>#121.Best Time to Buy and Sell Stock(买卖股票的最佳时机)</h1><ul><li>难度: 简单</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</span><br><span class="line"></span><br><span class="line">如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。</span><br><span class="line"></span><br><span class="line">注意你不能在买入股票前卖出股票.</span><br></pre></td></tr></table></figure></li><li><p>样例: </p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [7,1,5,3,6,4]</span><br><span class="line">输出: 5</span><br><span class="line">解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。</span><br><span class="line">     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。</span><br><span class="line">     </span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [7,6,4,3,1]</span><br><span class="line">输出: 0</span><br><span class="line">解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h3></li><li>思路: 遍历一次数组，用一个变量记录遍历过的最小值，每次计算当前值和其与该最小值间差值的较大者做利润。当遍历完成后当前利润即为所求。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>, buy = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> price : prices) &#123;</span><br><span class="line">            buy = min(buy, price);</span><br><span class="line">            res = max(res, price - buy);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二-动态规划"><a href="#方法二-动态规划" class="headerlink" title="方法二(动态规划):"></a>方法二(动态规划):</h3><ul><li>思路: 两点之差可以转换成求和问题(牛顿莱布尼茨公式)。所以最大连续子数组和问题可以使用动态规划求解， dp[i] 表示以 i 为结尾的最大连续子数组和，递推公式为<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dp[i] = max(0,dp[i-1])</span><br></pre></td></tr></table></figure></li></ul><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> last = <span class="number">0</span>, profit = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)prices.size() - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">        last = max(<span class="number">0</span>, last + prices[i+<span class="number">1</span>] - prices[i]);</span><br><span class="line">        profit = max(profit, last);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> profit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Leetcode]70.Climbing Stairs Tree(爬楼梯)</title>
+      <link href="/2019/09/10/Leetcode-70-Climbing-Stairs-Tree/"/>
+      <url>/2019/09/10/Leetcode-70-Climbing-Stairs-Tree/</url>
+      
+        <content type="html"><![CDATA[<h1 id="70-Climbing-Stairs-Tree-爬楼梯"><a href="#70-Climbing-Stairs-Tree-爬楼梯" class="headerlink" title="#70.Climbing Stairs Tree(爬楼梯)"></a>#70.Climbing Stairs Tree(爬楼梯)</h1><ul><li>难度: 简单</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</span><br><span class="line"></span><br><span class="line">每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</span><br><span class="line"></span><br><span class="line">注意：给定 n 是一个正整数。</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例 1：</span><br><span class="line"></span><br><span class="line">输入： 2</span><br><span class="line">输出： 2</span><br><span class="line">解释： 有两种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶</span><br><span class="line">2.  2 阶</span><br><span class="line"></span><br><span class="line">示例 2：</span><br><span class="line"></span><br><span class="line">输入： 3</span><br><span class="line">输出： 3</span><br><span class="line">解释： 有三种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶 + 1 阶</span><br><span class="line">2.  1 阶 + 2 阶</span><br><span class="line">3.  2 阶 + 1 阶</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一-动态规划"><a href="#方法一-动态规划" class="headerlink" title="方法一(动态规划):"></a>方法一(动态规划):</h3></li><li>思路: 每次只能爬1或2步，爬到第n层的方法要么从第 n-1 层1步上来，要么是从 n-2 层2步上来，所以递推公式：dp[n] = dp[n-1] + dp[n-2] 。递归耗时较大，这里利用动态规划提高效率<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;dp(n);</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>]=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[i]=dp[i<span class="number">-1</span>]+dp[i<span class="number">-2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二:"></a>方法二:</h3><ul><li>思路: 用两个整型变量a和b来存储过程值，模拟了上面累加的过程<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">            b += a;</span><br><span class="line">            a = b - a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法三-记忆数组"><a href="#方法三-记忆数组" class="headerlink" title="方法三(记忆数组):"></a>方法三(记忆数组):</h3><ul><li>思路: 利用记忆数组保存计算过的结果，这样就不会存在重复计算了，大大提高了运行效率，其实递归加记忆数组跟迭代的 DP 形式基本是大同小异的<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; memory(n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> helper(n, memory);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; memory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (memory[n] &gt; <span class="number">0</span>) <span class="keyword">return</span> memory[n];</span><br><span class="line">        <span class="keyword">return</span> memory[n] = helper(n - <span class="number">1</span>, memory) + helper(n - <span class="number">2</span>, memory);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法四-分治法"><a href="#方法四-分治法" class="headerlink" title="方法四(分治法):"></a>方法四(分治法):</h3><ul><li>思路: 待续……<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;       </span><br><span class="line">        <span class="keyword">return</span> climbStairs(n / <span class="number">2</span>) * climbStairs(n - n / <span class="number">2</span>) + climbStairs(n / <span class="number">2</span> - <span class="number">1</span>) * climbStairs(n - n / <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法五-公式法"><a href="#方法五-公式法" class="headerlink" title="方法五(公式法):"></a>方法五(公式法):</h3><ul><li>思路: <a href="https://zhuanlan.zhihu.com/p/26679684" target="_blank" rel="noopener">斐波那契数列公式推导思路</a><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> root5 = <span class="built_in">sqrt</span>(<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">return</span> (<span class="number">1</span> / root5) * (<span class="built_in">pow</span>((<span class="number">1</span> + root5) / <span class="number">2</span>, n + <span class="number">1</span>) - <span class="built_in">pow</span>((<span class="number">1</span> - root5) / <span class="number">2</span>, n + <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Easy </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]897.Increasing Order Search</title>
       <link href="/2019/09/07/Leetcode-897-Increasing-Order-Search/"/>
       <url>/2019/09/07/Leetcode-897-Increasing-Order-Search/</url>
@@ -103,7 +163,7 @@
       <link href="/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/"/>
       <url>/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr><tr><td>879</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/07/Leetcode-897-Increasing-Order-Search/#897-Increasing-Order-Search-Tree-%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="BFS-广度优先搜索"><a href="#BFS-广度优先搜索" class="headerlink" title="BFS(广度优先搜索)"></a>BFS(广度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>广度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="Tree-树"><a href="#Tree-树" class="headerlink" title="Tree(树)"></a>Tree(树)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div>]]></content>
+        <content type="html"><![CDATA[<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr><tr><td>879</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/07/Leetcode-897-Increasing-Order-Search/#897-Increasing-Order-Search-Tree-%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="BFS-广度优先搜索"><a href="#BFS-广度优先搜索" class="headerlink" title="BFS(广度优先搜索)"></a>BFS(广度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>广度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="Tree-树"><a href="#Tree-树" class="headerlink" title="Tree(树)"></a>Tree(树)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="Dynamic-Programming-动态规划"><a href="#Dynamic-Programming-动态规划" class="headerlink" title="Dynamic Programming(动态规划)"></a>Dynamic Programming(动态规划)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>70</td><td>简单</td><td>动态规划分解成若干小问题</td><td><a href>address</a></td></tr><tr><td>121</td><td>简单</td><td>动态规划</td><td><a href>address</a></td></tr></tbody></table></div>]]></content>
       
       
       <categories>
@@ -142,11 +202,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 动态规划 </tag>
+            
             <tag> Medium </tag>
             
             <tag> 字符串 </tag>
-            
-            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -357,9 +417,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 数学 </tag>
             
@@ -390,9 +450,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
