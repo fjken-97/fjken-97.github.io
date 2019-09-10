@@ -22,9 +22,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -55,9 +55,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -115,11 +115,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -146,11 +146,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -177,13 +177,13 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -196,7 +196,7 @@
       <link href="/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/"/>
       <url>/2019/09/06/Leetcode-%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr><tr><td>879</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/07/Leetcode-897-Increasing-Order-Search/#897-Increasing-Order-Search-Tree-%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="BFS-广度优先搜索"><a href="#BFS-广度优先搜索" class="headerlink" title="BFS(广度优先搜索)"></a>BFS(广度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>广度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="Tree-树"><a href="#Tree-树" class="headerlink" title="Tree(树)"></a>Tree(树)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="Dynamic-Programming-动态规划"><a href="#Dynamic-Programming-动态规划" class="headerlink" title="Dynamic Programming(动态规划)"></a>Dynamic Programming(动态规划)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>70</td><td>简单</td><td>动态规划分解成若干小问题</td><td><a href>address</a></td></tr><tr><td>121</td><td>简单</td><td>动态规划</td><td><a href>address</a></td></tr></tbody></table></div>]]></content>
+        <content type="html"><![CDATA[<h2 id="DFS-深度优先搜索"><a href="#DFS-深度优先搜索" class="headerlink" title="DFS(深度优先搜索)"></a>DFS(深度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-559-Maximum-Depth-of-N-ary/" target="_blank" rel="noopener">address</a></td></tr><tr><td>879</td><td>简单</td><td>深度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/07/Leetcode-897-Increasing-Order-Search/" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="BFS-广度优先搜索"><a href="#BFS-广度优先搜索" class="headerlink" title="BFS(广度优先搜索)"></a>BFS(广度优先搜索)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr><tr><td>559</td><td>简单</td><td>广度优先搜索求二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-559-Maximum-Depth-of-N-ary/" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="Tree-树"><a href="#Tree-树" class="headerlink" title="Tree(树)"></a>Tree(树)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>104</td><td>简单</td><td>树的层序遍历求层数(亦即广度优先搜索)，即得二叉树的最大深度</td><td><a href="https://fjken.top/2019/09/06/Leetcode-104-Maximum-Depth-of-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div><h2 id="Dynamic-Programming-动态规划"><a href="#Dynamic-Programming-动态规划" class="headerlink" title="Dynamic Programming(动态规划)"></a>Dynamic Programming(动态规划)</h2><div class="table-container"><table><thead><tr><th>题号</th><th>难度</th><th>描述</th><th>地址</th></tr></thead><tbody><tr><td>70</td><td>简单</td><td>动态规划分解成若干小问题</td><td><a href="https://fjken.top/2019/09/10/Leetcode-70-Climbing-Stairs-Tree/" target="_blank" rel="noopener">address</a></td></tr><tr><td>53</td><td>简单</td><td>动态规划</td><td><a href="https://fjken.top/2019/09/11/Leetcode-53-Maximum-Subarray/" target="_blank" rel="noopener">address</a></td></tr><tr><td>121</td><td>简单</td><td>动态规划</td><td><a href="https://fjken.top/2019/09/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/" target="_blank" rel="noopener">address</a></td></tr></tbody></table></div>]]></content>
       
       
       <categories>
@@ -235,9 +235,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 字符串 </tag>
             
@@ -299,9 +299,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -328,9 +328,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -512,9 +512,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -572,9 +572,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 双指针 </tag>
             
@@ -605,11 +605,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
