@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>[Leetcode]23.Merge k Sorted Lists(合并K个排序链表)</title>
+      <link href="/2019/09/25/Leetcode-23-Merge-k-Sorted-Lists/"/>
+      <url>/2019/09/25/Leetcode-23-Merge-k-Sorted-Lists/</url>
+      
+        <content type="html"><![CDATA[<ul><li>难度: 困难</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">[</span><br><span class="line">  1-&gt;4-&gt;5,</span><br><span class="line">  1-&gt;3-&gt;4,</span><br><span class="line">  2-&gt;6</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一-最小堆思想"><a href="#方法一-最小堆思想" class="headerlink" title="方法一(最小堆思想):"></a>方法一(最小堆思想):</h3></li><li>思路: 将 k 个链表的首元素都加入最小堆中，通过自己定义的规则自动排好序。每次取出最小的那个元素加入到最终结果的链表中，把取出元素的下一个元素再加入堆中，下次仍从堆中取出最小的元素做相同的操作，以此类推，直到堆空，此时k个链表也合并为了一个链表，返回首节点即可。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](ListNode*&amp; a, ListNode*&amp; b) &#123;</span><br><span class="line">            <span class="keyword">return</span> a-&gt;val &gt; b-&gt;val;</span><br><span class="line">        &#125;;</span><br><span class="line">        priority_queue&lt;ListNode*, <span class="built_in">vector</span>&lt;ListNode*&gt;, <span class="keyword">decltype</span>(cmp) &gt; q(cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> node : lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node) q.push(node);</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *dummy = <span class="keyword">new</span> ListNode(<span class="number">-1</span>), *cur = dummy;</span><br><span class="line">        <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = q.top(); q.pop();</span><br><span class="line">            cur-&gt;next = t;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (cur-&gt;next) q.push(cur-&gt;next);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二-分治法"><a href="#方法二-分治法" class="headerlink" title="方法二(分治法):"></a>方法二(分治法):</h3><ul><li>思路: 将 k 个链表先划分为合并两个 k/2 个链表的任务，再不停的往下划分，直到划分成只有一个或两个链表的任务，开始合并。</li><li>说明: 加1操作是为了当 n 为奇数的时候，k能始终从后半段开始，比如当 n=5 时，那么此时 k=3，则 0 和 3 合并，1 和 4 合并，最中间的 2 空出来。当n是偶数的时候，加1也不会有影响，比如当 n=4 时，此时 k=2，那么 0 和 2 合并， 1 和 3 合并，完美解决问题<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lists.empty()) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">int</span> n = lists.size();</span><br><span class="line">        <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> k = (n + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">                lists[i] = mergeTwoLists(lists[i], lists[i + k]);</span><br><span class="line">            &#125;</span><br><span class="line">            n = k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lists[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode *dummy = <span class="keyword">new</span> ListNode(<span class="number">-1</span>), *cur = dummy;</span><br><span class="line">        <span class="keyword">while</span> (l1 &amp;&amp; l2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">                cur-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                cur-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (l1) cur-&gt;next = l1;</span><br><span class="line">        <span class="keyword">if</span> (l2) cur-&gt;next = l2;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法三-混合排序思想"><a href="#方法三-混合排序思想" class="headerlink" title="方法三(混合排序思想):"></a>方法三(混合排序思想):</h3><ul><li>思路: 将原链表分成两段，然后对每段调用递归函数，suppose返回的left和right已经合并好了，然后再对left和right进行递归地合并<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(lists, <span class="number">0</span>, (<span class="keyword">int</span>)lists.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">helper</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">if</span> (start == end) <span class="keyword">return</span> lists[start];</span><br><span class="line">        <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        ListNode *left = helper(lists, start, mid);</span><br><span class="line">        ListNode *right = helper(lists, mid + <span class="number">1</span>, end);</span><br><span class="line">        <span class="keyword">return</span> mergeTwoLists(left, right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!l1) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">if</span> (!l2) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">if</span> (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">            l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            l2-&gt;next = mergeTwoLists(l1, l2-&gt;next);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> 分治算法 </tag>
+            
+            <tag> 最小堆 </tag>
+            
+            <tag> Hard </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]215.Kth Largest Element in an Array(数组中的第K个最大元素)</title>
       <link href="/2019/09/22/Leetcode-215-Kth-Largest-Element-in-an-Array/"/>
       <url>/2019/09/22/Leetcode-215-Kth-Largest-Element-in-an-Array/</url>
@@ -22,9 +53,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 分治算法 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 堆 </tag>
             
@@ -53,11 +84,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
+            <tag> 动态规划 </tag>
             
             <tag> 数组 </tag>
             
-            <tag> 动态规划 </tag>
+            <tag> Easy </tag>
             
             <tag> 分治算法 </tag>
             
@@ -86,11 +117,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
+            <tag> 动态规划 </tag>
             
             <tag> 数组 </tag>
             
-            <tag> 动态规划 </tag>
+            <tag> Easy </tag>
             
         </tags>
       
@@ -117,9 +148,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -146,11 +177,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -177,11 +208,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -208,13 +239,13 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -266,9 +297,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 字符串 </tag>
             
@@ -299,11 +330,11 @@
             
             <tag> 数组 </tag>
             
-            <tag> 二分查找 </tag>
-            
             <tag> 分治算法 </tag>
             
             <tag> Hard </tag>
+            
+            <tag> 二分查找 </tag>
             
         </tags>
       
@@ -388,11 +419,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> 双指针 </tag>
             
             <tag> Medium </tag>
+            
+            <tag> 哈希表 </tag>
             
             <tag> 字符串 </tag>
             
@@ -543,9 +574,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 树 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 树 </tag>
             
         </tags>
       
@@ -603,9 +634,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 双指针 </tag>
             
@@ -636,9 +667,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 哈希表 </tag>
             
