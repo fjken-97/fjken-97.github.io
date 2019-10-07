@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>[Leetcode]198.House Robber</title>
+      <link href="/2019/10/07/Leetcode-198-House-Robber/"/>
+      <url>/2019/10/07/Leetcode-198-House-Robber/</url>
+      
+        <content type="html"><![CDATA[<h1 id="198-House-Robber-打家劫舍"><a href="#198-House-Robber-打家劫舍" class="headerlink" title="#198.House Robber(打家劫舍)"></a>#198.House Robber(打家劫舍)</h1><ul><li>难度: 简单</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</span><br><span class="line"></span><br><span class="line">给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [1,2,3,1]</span><br><span class="line">输出: 4</span><br><span class="line">解释: 偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。</span><br><span class="line">     偷窃到的最高金额 = 1 + 3 = 4 。</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [2,7,9,3,1]</span><br><span class="line">输出: 12</span><br><span class="line">解释: 偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。</span><br><span class="line">     偷窃到的最高金额 = 2 + 9 + 1 = 12</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一-动态规划"><a href="#方法一-动态规划" class="headerlink" title="方法一(动态规划):"></a>方法一(动态规划):</h3></li><li>思路: 本质相当于在一列数组中取出一个或多个不相邻数，使其和最大。那么对于这类求极值的问题首先考虑动态规划 Dynamic Programming 来解，维护一个一位数组 dp，其中 dp[i] 表示 [0, i] 区间可以抢夺的最大值，对当前i来说，有抢和不抢两种互斥的选择，不抢即为 dp[i-1]（等价于去掉 nums[i] 只抢 [0, i-1] 区间最大值），抢即为 dp[i-2] + nums[i]（等价于去掉 nums[i-1]）。状态转移方程 dp[i] = max(num[i] + dp[i - 2], dp[i - 1]), 且需要初始化 dp[0] 和 dp[1]，其中 dp[0] 即为 num[0]，dp[1] 此时应该为 max(num[0], num[1])，代码如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num.size() &lt;= <span class="number">1</span>) <span class="keyword">return</span> num.empty() ? <span class="number">0</span> : num[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp = &#123;num[<span class="number">0</span>], max(num[<span class="number">0</span>], num[<span class="number">1</span>])&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; num.size(); ++i) &#123;</span><br><span class="line">            dp.push_back(max(num[i] + dp[i - <span class="number">2</span>], dp[i - <span class="number">1</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二:"></a>方法二:</h3><ul><li>思路: 核心思想还是用 DP，分别维护两个变量 robEven 和 robOdd，顾名思义，robEven 就是要抢偶数位置的房子，robOdd 就是要抢奇数位置的房子。所以在遍历房子数组时，如果是偶数位置，那么 robEven 就要加上当前数字，然后和 robOdd 比较，取较大的来更新 robEven。这里就看出来了，robEven 组成的值并不是只由偶数位置的数字，只是当前要抢偶数位置而已。同理，当奇数位置时，robOdd 加上当前数字和 robEven 比较，取较大值来更新 robOdd，这种按奇偶分别来更新的方法，可以保证组成最大和的数字不相邻，最后在 robEven 和 robOdd 种取较大值返回，代码如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> robEven = <span class="number">0</span>, robOdd = <span class="number">0</span>, n = nums.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                robEven = max(robEven + nums[i], robOdd);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                robOdd = max(robEven, robOdd + nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max(robEven, robOdd);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三:"></a>方法三:</h3><ul><li>思路: 上述方法的进一步简洁，我们使用两个变量 rob 和 notRob，其中 rob 表示抢当前的房子，notRob 表示不抢当前的房子，那么在遍历的过程中，先用两个变量 preRob 和 preNotRob 来分别记录更新之前的值，由于 rob 是要抢当前的房子，那么前一个房子一定不能抢，所以使用 preNotRob 加上当前的数字赋给 rob，然后 notRob 表示不能抢当前的房子，那么之前的房子就可以抢也可以不抢，所以将 preRob 和 preNotRob 中的较大值赋给 notRob，参见代码如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rob = <span class="number">0</span>, notRob = <span class="number">0</span>, n = nums.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> preRob = rob, preNotRob = notRob;</span><br><span class="line">            rob = preNotRob + nums[i];</span><br><span class="line">            notRob = max(preRob, preNotRob);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max(rob, notRob);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Leetcode]746.Min Cost Climbing Stairs</title>
+      <link href="/2019/10/07/Leetcode-746-Min-Cost-Climbing-Stairs/"/>
+      <url>/2019/10/07/Leetcode-746-Min-Cost-Climbing-Stairs/</url>
+      
+        <content type="html"><![CDATA[<h1 id="746-Min-Cost-Climbing-Stairs-使用最小花费爬楼梯"><a href="#746-Min-Cost-Climbing-Stairs-使用最小花费爬楼梯" class="headerlink" title="#746.Min Cost Climbing Stairs(使用最小花费爬楼梯)"></a>#746.Min Cost Climbing Stairs(使用最小花费爬楼梯)</h1><ul><li>难度: 简单</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">数组的每个索引做为一个阶梯，第 i个阶梯对应着一个非负数的体力花费值 cost[i](索引从0开始)。</span><br><span class="line"></span><br><span class="line">每当你爬上一个阶梯你都要花费对应的体力花费值，然后你可以选择继续爬一个阶梯或者爬两个阶梯。</span><br><span class="line"></span><br><span class="line">您需要找到达到楼层顶部的最低花费。在开始时，你可以选择从索引为 0 或 1 的元素作为初始阶梯。</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例 1:</span><br><span class="line">输入: cost = [10, 15, 20]</span><br><span class="line">输出: 15</span><br><span class="line">解释: 最低花费是从cost[1]开始，然后走两步即可到阶梯顶，一共花费15。</span><br><span class="line"></span><br><span class="line"> 示例 2:</span><br><span class="line">输入: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 最低花费方式是从cost[0]开始，逐个经过那些1，跳过cost[3]，一共花费6。</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">cost 的长度将会在 [2, 1000]。</span><br><span class="line">每一个 cost[i] 将会是一个Integer类型，范围为 [0, 999]。</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一-动态规划"><a href="#方法一-动态规划" class="headerlink" title="方法一(动态规划):"></a>方法一(动态规划):</h3></li><li><p>思路: 定义一个一维的dp数组，其中dp[i]表示爬到第i层的最小cost，dp[i]到第i层只有两种可能性，一个是从第i-2层上直接跳上来，一个是从第i-1层上跳上来。dp[i]只和前两层有关系，所以可以写做如下:</p><p>  <strong>dp[i] = min(dp[i- 2] + cost[i - 2], dp[i - 1] + cost[i - 1])</strong></p><p>  最后返回最后一个数字dp[n]即可。</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = cost.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n + <span class="number">1</span>; ++i) &#123;</span><br><span class="line">            dp[i] = min(dp[i- <span class="number">2</span>] + cost[i - <span class="number">2</span>], dp[i - <span class="number">1</span>] + cost[i - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二:"></a>方法二:</h3><ul><li><p>思路: 跟上面的解法很相近，不同在于dp数组长度为n，其中dp[i]表示到第i+1层的最小cost，分别初始化dp[0]和dp[1]为cost[0]和cost[1]。然后从i=2处开始遍历，此时我们的更新思路是，要爬当前的台阶，肯定需要加上当前的cost[i]，那么我们还是要从前一层或者前两层的台阶上跳上来，那么我们选择dp值小的那个，所以递归式如下：</p><p>  <strong>dp[i] = cost[i] + min(dp[i- 1], dp[i - 2])</strong></p><p>  最后在最后两个dp值中选择一个较小的返回即可</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = cost.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(n, <span class="number">0</span>);</span><br><span class="line">        dp[<span class="number">0</span>] = cost[<span class="number">0</span>]; dp[<span class="number">1</span>] = cost[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            dp[i] = cost[i] + min(dp[i- <span class="number">1</span>], dp[i - <span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min(dp[n - <span class="number">1</span>], dp[n - <span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三:"></a>方法三:</h3><ul><li>说明: 可以对空间复杂度进行优化，通过前面的分析我们可以发现，当前的dp值仅仅依赖前面两个的值，所以不必把整个dp数组都记录下来，只需用两个变量a和b来记录前两个值，然后不停的用新得到的值来覆盖它们就好了。我们初始化a和b均为0，然后遍历cost数组，首先将a和b中较小值加上num放入临时变量t中，然后把b赋给a，把t赋给b即可，参见代码如下<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : cost) &#123;</span><br><span class="line">            <span class="keyword">int</span> t = min(a, b) + num;</span><br><span class="line">            a = b;</span><br><span class="line">            b = t;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min(a, b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法四-递归法"><a href="#方法四-递归法" class="headerlink" title="方法四(递归法):"></a>方法四(递归法):</h3><ul><li>说明: 还可以用递归来写，需要优化计算量，即用HashMap来保存已经算过了台阶，用的还是dp的思想，参见代码如下<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; memo;</span><br><span class="line">        <span class="keyword">return</span> helper(cost, cost.size(), memo);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">helper</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost, <span class="keyword">int</span> i, <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&amp; memo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (memo.count(i)) <span class="keyword">return</span> memo[i];</span><br><span class="line">        <span class="keyword">if</span> (i &lt;= <span class="number">1</span>) <span class="keyword">return</span> memo[i] = cost[i];</span><br><span class="line">        <span class="keyword">return</span> memo[i] = (i == cost.size() ? <span class="number">0</span> : cost[i]) + min(helper(cost, i - <span class="number">1</span>, memo), helper(cost, i - <span class="number">2</span>, memo));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]167.two sum ii-input array is sorted(两数之和 II - 输入有序数组)</title>
       <link href="/2019/10/02/Leetcode-167-two-sum-ii-input-array-is-sorted/"/>
       <url>/2019/10/02/Leetcode-167-two-sum-ii-input-array-is-sorted/</url>
@@ -16,13 +66,13 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
             
             <tag> 双指针 </tag>
             
             <tag> 二分查找 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -140,9 +190,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -173,9 +223,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -233,11 +283,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -264,11 +314,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -295,13 +345,13 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -353,9 +403,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 字符串 </tag>
             
@@ -384,9 +434,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 二分查找 </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 分治算法 </tag>
             
@@ -417,9 +467,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -446,9 +496,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -475,11 +525,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> 双指针 </tag>
             
             <tag> Medium </tag>
+            
+            <tag> 哈希表 </tag>
             
             <tag> 字符串 </tag>
             
@@ -568,9 +618,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 数学 </tag>
             
@@ -601,9 +651,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
@@ -630,9 +680,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -659,11 +709,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 双指针 </tag>
             
             <tag> Medium </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -690,11 +740,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
