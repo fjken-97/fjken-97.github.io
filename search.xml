@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>[Leetcode]64.Minimum Path Sum</title>
+      <link href="/2019/10/07/Leetcode-64-Minimum-Path-Sum/"/>
+      <url>/2019/10/07/Leetcode-64-Minimum-Path-Sum/</url>
+      
+        <content type="html"><![CDATA[<h1 id="64-Minimum-Path-Sum-最小路径和"><a href="#64-Minimum-Path-Sum-最小路径和" class="headerlink" title="#64.Minimum Path Sum(最小路径和)"></a>#64.Minimum Path Sum(最小路径和)</h1><ul><li>难度: 中等</li><li><p>题目描述:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</span><br><span class="line"></span><br><span class="line">说明：每次只能向下或者向右移动一步。</span><br></pre></td></tr></table></figure></li><li><p>样例:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">[</span><br><span class="line">  [1,3,1],</span><br><span class="line">  [1,5,1],</span><br><span class="line">  [4,2,1]</span><br><span class="line">]</span><br><span class="line">输出: 7</span><br><span class="line">解释: 因为路径 1→3→1→1→1 的总和最小。</span><br></pre></td></tr></table></figure></li><li><p>解答：</p><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h3></li><li>思路: 这道题给了我们一个只有非负数的二维数组，让找一条从左上到右下的路径，使得路径和最小，限定了每次只能向下或者向右移动。一个常见的错误解法就是每次走右边或下边数字中较小的那个，这样的贪婪算法获得的局部最优解不一定是全局最优解，因此是不行的。实际上这道题跟之前那道 Dungeon Game 没有什么太大的区别，都需要用动态规划 Dynamic Programming 来做，这应该算是 DP 问题中比较简单的一类，我们维护一个二维的 dp 数组，其中 dp[i][j] 表示到达当前位置的最小路径和。接下来找状态转移方程，因为到达当前位置 (i, j)  只有两种情况，要么从上方 (i-1, j) 过来，要么从左边 (i, j-1) 过来，我们选择 dp 值较小的那个路径，即比较 dp[i-1][j] 和 dp[i][j-1]，将其中的较小值加上当前的数字 grid[i][j]，就是当前位置的 dp 值了。但是有些特殊情况要提前赋值，比如起点位置，直接赋值为 grid[0][0]，还有就是第一行和第一列，其中第一行的位置只能从左边过来，第一列的位置从能从上面过来，所以这两行要提前初始化好，然后再从 (1, 1) 的位置开始更新到右下角即可，反正难度不算大，代码如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (grid.empty() || grid[<span class="number">0</span>].empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = grid.size(), n = grid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; ++i) dp[i][<span class="number">0</span>] = grid[i][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; ++j) dp[<span class="number">0</span>][j] = grid[<span class="number">0</span>][j] + dp[<span class="number">0</span>][j - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                dp[i][j] = grid[i][j] + min(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">``` </span><br><span class="line">### 方法二:</span><br><span class="line">- 说明: 可以优化空间复杂度，可以使用一个一维的 dp 数组就可以了，初始化为整型最大值，但是 dp[<span class="number">0</span>][<span class="number">0</span>] 要初始化为<span class="number">0</span>。之所以可以用一维数组代替之前的二维数组，是因为当前的 dp 值只跟左边和上面的 dp 值有关。这里我们并不提前更新第一行或是第一列，而是在遍历的时候判断，若j等于<span class="number">0</span>时，说明是第一列，我们直接加上当前的数字，否则就要比较是左边的 dp[j<span class="number">-1</span>] 小还是上面的 dp[j]  小，当是第一行的时候，dp[j] 是整型最大值，所以肯定会取到 dp[j<span class="number">-1</span>] 的值，然后再加上当前位置的数字即可，参见代码如下：</span><br><span class="line">```Cpp</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (grid.empty() || grid[<span class="number">0</span>].empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = grid.size(), n = grid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(n, INT_MAX);</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j == <span class="number">0</span>) dp[j] += grid[i][j];</span><br><span class="line">                <span class="keyword">else</span> dp[j] = grid[i][j] + min(dp[j], dp[j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul><h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三:"></a>方法三:</h3><ul><li><p>说明: 还可以进一步的优化空间，连一维数组都不用新建，而是直接使用原数组 grid 进行累加，这里的累加方式跟解法一稍有不同，没有提前对第一行和第一列进行赋值，而是放在一起判断了，当i和j同时为0时，直接跳过。否则当i等于0时，只加上左边的值，当j等于0时，只加上面的值，否则就比较左边和上面的值，加上较小的那个即可，参见代码如下：</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (grid.empty() || grid[<span class="number">0</span>].empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid[i].size(); ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) grid[<span class="number">0</span>][j] += grid[<span class="number">0</span>][j - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>) grid[i][<span class="number">0</span>] += grid[i - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">else</span> grid[i][j] += min(grid[i - <span class="number">1</span>][j], grid[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> grid.back().back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p> 思路同上，或者利用 up 和 left 去代替:</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (grid.empty() || grid[<span class="number">0</span>].empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid[i].size(); ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> up = (i == <span class="number">0</span>) ? INT_MAX : grid[i - <span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">int</span> left = (j == <span class="number">0</span>) ? INT_MAX : grid[i][j - <span class="number">1</span>];</span><br><span class="line">                grid[i][j] += min(up, left);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> grid.back().back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+            <tag> Medium </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]198.House Robber</title>
       <link href="/2019/10/07/Leetcode-198-House-Robber/"/>
       <url>/2019/10/07/Leetcode-198-House-Robber/</url>
@@ -16,9 +41,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -41,9 +66,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -66,13 +91,13 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 数组 </tag>
+            
             <tag> Easy </tag>
             
             <tag> 双指针 </tag>
             
             <tag> 二分查找 </tag>
-            
-            <tag> 数组 </tag>
             
         </tags>
       
@@ -190,9 +215,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -223,9 +248,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -283,11 +308,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -314,11 +339,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -345,13 +370,13 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -403,9 +428,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 字符串 </tag>
             
@@ -434,9 +459,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 二分查找 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 二分查找 </tag>
             
             <tag> 分治算法 </tag>
             
@@ -467,9 +492,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -496,9 +521,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -525,11 +550,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 哈希表 </tag>
+            
             <tag> 双指针 </tag>
             
             <tag> Medium </tag>
-            
-            <tag> 哈希表 </tag>
             
             <tag> 字符串 </tag>
             
@@ -618,9 +643,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 链表 </tag>
             
             <tag> 数学 </tag>
             
@@ -651,9 +676,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -680,9 +705,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 树 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 树 </tag>
             
         </tags>
       
@@ -709,11 +734,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 数组 </tag>
+            
             <tag> 双指针 </tag>
             
             <tag> Medium </tag>
-            
-            <tag> 数组 </tag>
             
         </tags>
       
@@ -740,11 +765,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
