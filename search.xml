@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>[阅读笔记]HTML5秘籍</title>
+      <link href="/2019/11/23/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTML5%E7%A7%98%E7%B1%8D/"/>
+      <url>/2019/11/23/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTML5%E7%A7%98%E7%B1%8D/</url>
+      
+        <content type="html"><![CDATA[<h1 id="阅读笔记-HTML5秘籍-章节1-4"><a href="#阅读笔记-HTML5秘籍-章节1-4" class="headerlink" title="[阅读笔记]HTML5秘籍(章节1~4)"></a>[阅读笔记]HTML5秘籍(章节1~4)</h1><h2 id="Part-1-HTML5简介"><a href="#Part-1-HTML5简介" class="headerlink" title="Part 1. HTML5简介"></a>Part 1. HTML5简介</h2><p>HTML5集合了之前所有的特性，同时涵盖往后的新特性，给人的印象大概就是新旧集合的元素堆叠，不排除任一个阵营的喜好，可严谨抑又可拓展的存在，海纳百川 :D（我只是在真实的反映浏览器真实现状罢了</p><p>顺便跟flash插件说声ヾ(•ω•`)o</p><h2 id="Part-2-构造网页新方式"><a href="#Part-2-构造网页新方式" class="headerlink" title="Part 2. 构造网页新方式"></a>Part 2. 构造网页新方式</h2><p>div和span的功能相近，用于将内容分块，不过div为分块元素（换行）而span为行内元素（不换行）</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size" target="_blank" rel="noopener">font-size</a></p><p>新增的<header><footer><hgroup><figure>等其实就是使得原本分块的<div>换至意义更加的明确，更加针对你（逃，偷懒+习惯<div>使然</div></div></figure></hgroup></footer></header></p><h2 id="Part-3-有意义的标记"><a href="#Part-3-有意义的标记" class="headerlink" title="Part 3. 有意义的标记"></a>Part 3. 有意义的标记</h2><p>如章节题给所言，主要记录的都是具有特定含义的标签，特殊用法都可通过在MDN上检索查询，这里也就不再赘述，仅供自己检索</p><h2 id="Part-4-Web表单"><a href="#Part-4-Web表单" class="headerlink" title="Part 4. Web表单"></a>Part 4. Web表单</h2><p>通过列表、文本框、按钮等收集用户数据即是表单</p><p>关于表单控件、样式的诸多介绍，因为并没有必要的需求，暂时草草掠过后续有需要再回看。</p><h2 id="Part-0-使用工具及参考文献"><a href="#Part-0-使用工具及参考文献" class="headerlink" title="Part 0.使用工具及参考文献"></a>Part 0.使用工具及参考文献</h2><ul><li>《HTML5秘籍/HTML5:The Missing Manual》（Matthew.MacDonald）</li><li>查询哪个浏览器支持的HTML5功能网站：<a href="http://caniuse.com" target="_blank" rel="noopener">http://caniuse.com</a></li><li>各国语言检索：<a href="https://www.w3school.com.cn/tags/html_ref_language_codes.asp" target="_blank" rel="noopener">lang属性</a></li><li>h5在线验错：<a href="https://validator.w3.org/nu/" target="_blank" rel="noopener">标签疏漏</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[Leetcode]64.Minimum Path Sum</title>
       <link href="/2019/10/07/Leetcode-64-Minimum-Path-Sum/"/>
       <url>/2019/10/07/Leetcode-64-Minimum-Path-Sum/</url>
@@ -41,9 +66,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -66,9 +91,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -91,9 +116,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 双指针 </tag>
             
@@ -215,9 +240,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -248,9 +273,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
             
@@ -308,11 +333,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -339,11 +364,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -370,13 +395,13 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -492,9 +517,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -521,9 +546,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -643,9 +668,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 数学 </tag>
             
@@ -676,9 +701,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
@@ -705,9 +730,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 树 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 树 </tag>
             
         </tags>
       
@@ -765,11 +790,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
