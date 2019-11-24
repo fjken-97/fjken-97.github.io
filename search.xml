@@ -8,7 +8,7 @@
       <link href="/2019/11/24/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTTP%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/"/>
       <url>/2019/11/24/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTTP%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</url>
       
-        <content type="html"><![CDATA[<h1 id="阅读笔记-HTTP权威指南"><a href="#阅读笔记-HTTP权威指南" class="headerlink" title="[阅读笔记]HTTP权威指南"></a>[阅读笔记]HTTP权威指南</h1><h2 id="第一章-HTTP概述"><a href="#第一章-HTTP概述" class="headerlink" title="第一章 HTTP概述"></a>第一章 HTTP概述</h2><h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ol><li><p>Web客户端与服务器是如何通信的</p><p> 客户端向服务器进行HTTP请求，服务器进行HTTP响应回传所请求的数据（包括对象、对象类型、对象长度等信息）</p></li><li><p>（表示Web内容的）资源来自何方</p><p> 可以是存储在Web服务器文件系统中的静态文件，也可以是软件程序根据需要生成的内容（媒体等）</p></li><li><p>Web事务是怎样工作的</p><p> 事务由请求和响应构成，通过HTTP报文的格式化数据块进行通信</p></li><li><p>HTTP通信所使用的报文格式</p><p> 分为请求报文和响应报文，主体分三部分：起始行（请求做什么，响应出现什么情况）、首部字段和可选的主体</p></li><li><p>底层TCP网络传输</p><p> 由URL获取HTTP服务器的IP地址和端口号（其中域名服务DNS可以将主机名转换为对应的IP地址），通过网际协议IP地址和端口号建立客户端和服务器之间的TCP/IP通道，TCP进行无差错、按序、为分段的数据传输（基于文本的）。</p></li><li>不同的HTTP协议变体</li></ol><ol><li>因特网上安装的大量HTTP架构组件中的一部分</li></ol><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li>《HTTP权威指南》</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="阅读笔记-HTTP权威指南"><a href="#阅读笔记-HTTP权威指南" class="headerlink" title="[阅读笔记]HTTP权威指南"></a>[阅读笔记]HTTP权威指南</h1><h2 id="第一章-HTTP概述"><a href="#第一章-HTTP概述" class="headerlink" title="第一章 HTTP概述"></a>第一章 HTTP概述</h2><h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ol><li><p>Web客户端与服务器是如何通信的</p><p> 客户端向服务器进行HTTP请求，服务器进行HTTP响应回传所请求的数据（包括对象、对象类型、对象长度等信息）</p></li><li><p>（表示Web内容的）资源来自何方</p><p> 可以是存储在Web服务器文件系统中的静态文件，也可以是软件程序根据需要生成的内容（媒体等）</p></li><li><p>Web事务是怎样工作的</p><p> 事务由请求和响应构成，通过HTTP报文的格式化数据块进行通信</p></li><li><p>HTTP通信所使用的报文格式</p><p> 分为请求报文和响应报文，主体分三部分：起始行（请求做什么，响应出现什么情况）、首部字段和可选的主体</p></li><li><p>底层TCP网络传输</p><p> 由URL获取HTTP服务器的IP地址和端口号（其中域名服务DNS可以将主机名转换为对应的IP地址），通过网际协议IP地址和端口号建立客户端和服务器之间的TCP/IP通道，TCP进行无差错、按序、为分段的数据传输（基于文本的）。</p></li><li><p>不同的HTTP协议变体</p><p> 广泛使用HTTP/1.0</p></li><li><p>因特网上安装的大量HTTP架构组件中的一部分</p><p> 代理（位于客户端和服务器之间的负责转发工作的HTTP代理服务器）、缓存（HTTP仓库，经代理传送的常用文档复制保存做副本，留下次请求同一文档时提供服务）、网关（将HTTP流量转换成其他协议，连接其他应用程序的特殊Web服务器）、隧道（对HTTP通道报文进行盲转发的特殊代理，常见用途是通过HTTP连接承载加密的安全套接字层SSL流量）、Agent代理（代表用户发起HTTP请求的Web客户端程序，如Web浏览器等）</p></li></ol><h2 id="第二章-URL与资源"><a href="#第二章-URL与资源" class="headerlink" title="第二章 URL与资源"></a>第二章 URL与资源</h2><p>待续。。。。。。  </p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li>《HTTP权威指南》</li></ol>]]></content>
       
       
       <categories>
@@ -66,9 +66,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> Medium </tag>
             
@@ -91,11 +91,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 数组 </tag>
+            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
-            
-            <tag> 数组 </tag>
             
         </tags>
       
@@ -116,11 +116,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 数组 </tag>
+            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
-            
-            <tag> 数组 </tag>
             
         </tags>
       
@@ -141,13 +141,13 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
             
-            <tag> 双指针 </tag>
+            <tag> Easy </tag>
             
             <tag> 二分查找 </tag>
+            
+            <tag> 双指针 </tag>
             
         </tags>
       
@@ -265,11 +265,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 数组 </tag>
+            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
-            
-            <tag> 数组 </tag>
             
             <tag> 分治算法 </tag>
             
@@ -298,11 +298,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 数组 </tag>
+            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
-            
-            <tag> 数组 </tag>
             
         </tags>
       
@@ -358,11 +358,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -389,11 +389,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -420,13 +420,13 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
@@ -542,9 +542,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -571,9 +571,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -693,11 +693,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 链表 </tag>
+            
             <tag> Medium </tag>
             
             <tag> 数学 </tag>
-            
-            <tag> 链表 </tag>
             
         </tags>
       
@@ -726,9 +726,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
@@ -755,9 +755,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 树 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 树 </tag>
             
         </tags>
       
@@ -815,11 +815,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
