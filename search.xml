@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>[阅读笔记]HTTP权威指南</title>
+      <link href="/2019/11/24/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTTP%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/"/>
+      <url>/2019/11/24/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTTP%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<h1 id="阅读笔记-HTTP权威指南"><a href="#阅读笔记-HTTP权威指南" class="headerlink" title="[阅读笔记]HTTP权威指南"></a>[阅读笔记]HTTP权威指南</h1><h2 id="第一章-HTTP概述"><a href="#第一章-HTTP概述" class="headerlink" title="第一章 HTTP概述"></a>第一章 HTTP概述</h2><h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ol><li><p>Web客户端与服务器是如何通信的</p><p> 客户端向服务器进行HTTP请求，服务器进行HTTP响应回传所请求的数据（包括对象、对象类型、对象长度等信息）</p></li><li><p>（表示Web内容的）资源来自何方</p><p> 可以是存储在Web服务器文件系统中的静态文件，也可以是软件程序根据需要生成的内容（媒体等）</p></li><li><p>Web事务是怎样工作的</p><p> 事务由请求和响应构成，通过HTTP报文的格式化数据块进行通信</p></li><li><p>HTTP通信所使用的报文格式</p><p> 分为请求报文和响应报文，主体分三部分：起始行（请求做什么，响应出现什么情况）、首部字段和可选的主体</p></li><li><p>底层TCP网络传输</p><p> 由URL获取HTTP服务器的IP地址和端口号（其中域名服务DNS可以将主机名转换为对应的IP地址），通过网际协议IP地址和端口号建立客户端和服务器之间的TCP/IP通道，TCP进行无差错、按序、为分段的数据传输（基于文本的）。</p></li><li>不同的HTTP协议变体</li></ol><ol><li>因特网上安装的大量HTTP架构组件中的一部分</li></ol><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li>《HTTP权威指南》</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[阅读笔记]HTML5秘籍</title>
       <link href="/2019/11/23/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTML5%E7%A7%98%E7%B1%8D/"/>
       <url>/2019/11/23/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTML5%E7%A7%98%E7%B1%8D/</url>
       
-        <content type="html"><![CDATA[<h1 id="阅读笔记-HTML5秘籍-章节1-4"><a href="#阅读笔记-HTML5秘籍-章节1-4" class="headerlink" title="[阅读笔记]HTML5秘籍(章节1~4)"></a>[阅读笔记]HTML5秘籍(章节1~4)</h1><h2 id="Part-1-HTML5简介"><a href="#Part-1-HTML5简介" class="headerlink" title="Part 1. HTML5简介"></a>Part 1. HTML5简介</h2><p>HTML5集合了之前所有的特性，同时涵盖往后的新特性，给人的印象大概就是新旧集合的元素堆叠，不排除任一个阵营的喜好，可严谨抑又可拓展的存在，海纳百川 :D（我只是在真实的反映浏览器真实现状罢了</p><p>顺便跟flash插件说声ヾ(•ω•`)o</p><h2 id="Part-2-构造网页新方式"><a href="#Part-2-构造网页新方式" class="headerlink" title="Part 2. 构造网页新方式"></a>Part 2. 构造网页新方式</h2><p>div和span的功能相近，用于将内容分块，不过div为分块元素（换行）而span为行内元素（不换行）</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size" target="_blank" rel="noopener">font-size</a></p><p>新增的<header><footer><hgroup><figure>等其实就是使得原本分块的<div>换至意义更加的明确，更加针对你（逃，偷懒+习惯<div>使然</div></div></figure></hgroup></footer></header></p><h2 id="Part-3-有意义的标记"><a href="#Part-3-有意义的标记" class="headerlink" title="Part 3. 有意义的标记"></a>Part 3. 有意义的标记</h2><p>如章节题给所言，主要记录的都是具有特定含义的标签，特殊用法都可通过在MDN上检索查询，这里也就不再赘述，仅供自己检索</p><h2 id="Part-4-Web表单"><a href="#Part-4-Web表单" class="headerlink" title="Part 4. Web表单"></a>Part 4. Web表单</h2><p>通过列表、文本框、按钮等收集用户数据即是表单</p><p>关于表单控件、样式的诸多介绍，因为并没有必要的需求，暂时草草掠过后续有需要再回看。</p><h2 id="Part-0-使用工具及参考文献"><a href="#Part-0-使用工具及参考文献" class="headerlink" title="Part 0.使用工具及参考文献"></a>Part 0.使用工具及参考文献</h2><ul><li>《HTML5秘籍/HTML5:The Missing Manual》（Matthew.MacDonald）</li><li>查询哪个浏览器支持的HTML5功能网站：<a href="http://caniuse.com" target="_blank" rel="noopener">http://caniuse.com</a></li><li>各国语言检索：<a href="https://www.w3school.com.cn/tags/html_ref_language_codes.asp" target="_blank" rel="noopener">lang属性</a></li><li>h5在线验错：<a href="https://validator.w3.org/nu/" target="_blank" rel="noopener">标签疏漏</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="阅读笔记-HTML5秘籍-章节1-4"><a href="#阅读笔记-HTML5秘籍-章节1-4" class="headerlink" title="[阅读笔记]HTML5秘籍(章节1~4)"></a>[阅读笔记]HTML5秘籍(章节1~4)</h1><h2 id="Part-1-HTML5简介"><a href="#Part-1-HTML5简介" class="headerlink" title="Part 1. HTML5简介"></a>Part 1. HTML5简介</h2><p>HTML5集合了之前所有的特性，同时涵盖往后的新特性，给人的印象大概就是新旧集合的元素堆叠，不排除任一个阵营的喜好，可严谨抑又可拓展的存在，海纳百川 :D（我只是在真实的反映浏览器真实现状罢了</p><p>顺便跟flash插件说声ヾ(•ω•`)o</p><h2 id="Part-2-构造网页新方式"><a href="#Part-2-构造网页新方式" class="headerlink" title="Part 2. 构造网页新方式"></a>Part 2. 构造网页新方式</h2><p>div和span的功能相近，用于将内容分块，不过div为分块元素（换行）而span为行内元素（不换行）</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size" target="_blank" rel="noopener">font-size</a></p><p>新增的·<header><footer><hgroup><figure>·等其实就是使得原本分块的·<div>·换至意义更加的明确，更加针对你（逃，偷懒+习惯<div>使然</div></div></figure></hgroup></footer></header></p><h2 id="Part-3-有意义的标记"><a href="#Part-3-有意义的标记" class="headerlink" title="Part 3. 有意义的标记"></a>Part 3. 有意义的标记</h2><p>如章节题给所言，主要记录的都是具有特定含义的标签，特殊用法都可通过在MDN上检索查询，这里也就不再赘述，仅供自己检索</p><h2 id="Part-4-Web表单"><a href="#Part-4-Web表单" class="headerlink" title="Part 4. Web表单"></a>Part 4. Web表单</h2><p>通过列表、文本框、按钮等收集用户数据即是表单</p><p>关于表单控件、样式的诸多介绍，因为并没有必要的需求，暂时草草掠过后续有需要再回看。</p><h2 id="Part-0-使用工具及参考文献"><a href="#Part-0-使用工具及参考文献" class="headerlink" title="Part 0.使用工具及参考文献"></a>Part 0.使用工具及参考文献</h2><ul><li>《HTML5秘籍/HTML5:The Missing Manual》（Matthew.MacDonald）</li><li>查询哪个浏览器支持的HTML5功能网站：<a href="http://caniuse.com" target="_blank" rel="noopener">http://caniuse.com</a></li><li>各国语言检索：<a href="https://www.w3school.com.cn/tags/html_ref_language_codes.asp" target="_blank" rel="noopener">lang属性</a></li><li>h5在线验错：<a href="https://validator.w3.org/nu/" target="_blank" rel="noopener">标签疏漏</a></li></ul>]]></content>
       
       
       <categories>
@@ -41,9 +66,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> Medium </tag>
             
@@ -66,11 +91,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -91,11 +116,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -116,9 +141,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 双指针 </tag>
             
@@ -240,11 +265,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 分治算法 </tag>
             
@@ -273,11 +298,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
             
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -333,11 +358,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -364,11 +389,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -395,13 +420,13 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -517,9 +542,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -546,9 +571,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -668,11 +693,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
             
             <tag> 数学 </tag>
+            
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -701,9 +726,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -730,9 +755,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -790,11 +815,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
