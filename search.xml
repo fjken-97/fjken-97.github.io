@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MDN文档学习</title>
+      <link href="/2019/11/27/MDN%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2019/11/27/MDN%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MDN文档学习"><a href="#MDN文档学习" class="headerlink" title="MDN文档学习"></a>MDN文档学习</h1><h2 id="Part-1-Web入门"><a href="#Part-1-Web入门" class="headerlink" title="Part 1.Web入门"></a>Part 1.Web入门</h2><p>超文本标记语言（英语：Hypertext Markup Language，简称：HTML），一种结构化Web网页及其内容的<strong>标记语言</strong>。</p><p>整体单元结构如下<br><img alt="段落元素" data-src="https://mdn.mozillademos.org/files/16475/element.png" class="lozad">@w=400<br><img alt="元素属性" data-src="https://mdn.mozillademos.org/files/16476/attribute.png" class="lozad">@w=400</p><p>HTML文档介绍<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>      <span class="comment">&lt;!--包含了整个页面的内容，有时也被称作根元素--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">head</span>&gt;</span>      <span class="comment">&lt;!--包含例如面向搜索引擎的搜索关键字（keywords）、页面描述、CSS 样式表和字符编码声明等--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">title</span>&gt;</span>测试页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">body</span>&gt;</span>        <span class="comment">&lt;!--包含期望让用户在访问页面时看到的内容--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/icon.png"</span> <span class="attr">alt</span>=<span class="string">"测试图片"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>常用标签一览：</p><ul><li>\<img\>：图像，src包含文件路径，alt为描述文本</img\></li><li>\<h\>：标题</h\></li><li>\<p\>：段落</p\></li><li>\<ul\>：无序列表</ul\></li><li>\<ol\>：有序列表</ol\></li><li>\<li\>：列表项元素</li\></li><li>\<a\>：链接，href包含链接网站</a\></li></ul><p>层叠样式表（Cascading Style Sheet，简称：CSS），为网页添加样式。</p><p><img alt="CSS规则集" data-src="https://mdn.mozillademos.org/files/16483/css-declaration.png" class="lozad">@w=400</p><p>常用<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/Selectors" target="_blank" rel="noopener">选择器</a></p><div class="table-container"><table><thead><tr><th>选择器名称</th><th>选择的内容</th><th>示例</th></tr></thead><tbody><tr><td>元素选择器（也称作标签或类型选择器）</td><td>所有指定类型的 HTML 元素</td><td>p 选择 \<p\></p\></td></tr><tr><td>ID 选择器</td><td>具有特定 ID 的元素（单一 HTML 页面中，每个 ID 只对应一个元素，一个元素只对应一个 ID）</td><td>#my-id选择 \<p id="my-id" \> 或 \<a id="my-id" \></a></p></td></tr><tr><td>类选择器</td><td>具有特定类的元素（单一页面中，一个类可以有多个实例）</td><td>.my-class选择 \<p class="my-class" \> 和 \<a class="my-class" \></a></p></td></tr><tr><td>属性选择器</td><td>拥有特定属性的元素</td><td>img[src]选择 \<img \ data-src="myimage.png" class="lozad"> 而不是 \<img\></img\></td></tr><tr><td>伪（Pseudo）类选择器</td><td>特定状态下的特定元素（比如鼠标指针悬停）</td><td>a:hover仅在鼠标指针悬停在链接上时选择 \<a\>。</a\></td></tr></tbody></table></div><p><img alt="盒模型" data-src="https://mdn.mozillademos.org/files/9443/box-model.png" class="lozad">@w=400</p><ul><li>width ：元素的宽度</li><li>background-color ：元素内容和内边距底下的颜色</li><li>color ：元素内容（通常是文本）的颜色</li><li>text-shadow ：为元素内的文本设置阴影</li><li>display ：设置元素的显示模式</li><li>margin: top right bottom left</li><li>……</li></ul><p>JavaScript（缩写：JS），动态编程语言。</p><p>我们将 \<script\> 放在HTML文件的底部附近的原因是浏览器会按照代码在文件中的顺序加载 HTML。如果先加载的 JavaScript 期望修改其下方的 HTML，那么它可能由于 HTML 尚未被加载而失效。因此，将 JavaScript 代码放在 HTML页面的底部附近通常是最好的策略。</script\></p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web" target="_blank" rel="noopener">MDN入门教程</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[阅读笔记]HTTP权威指南</title>
       <link href="/2019/11/24/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTTP%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/"/>
       <url>/2019/11/24/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-HTTP%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</url>
@@ -145,9 +170,9 @@
             
             <tag> Easy </tag>
             
-            <tag> 二分查找 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 二分查找 </tag>
             
         </tags>
       
