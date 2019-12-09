@@ -8,7 +8,7 @@
       <link href="/2019/12/08/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-HTML/"/>
       <url>/2019/12/08/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-HTML/</url>
       
-        <content type="html"><![CDATA[<h1 id="html"><a href="#html" class="headerlink" title="[html]"></a>[html]</h1><h2 id="页面导入样式时，使用link和-import有什么区别？"><a href="#页面导入样式时，使用link和-import有什么区别？" class="headerlink" title="页面导入样式时，使用link和@import有什么区别？"></a>页面导入样式时，使用link和@import有什么区别？</h2>]]></content>
+        <content type="html"><![CDATA[<h2 id="Day-1-2019-12-08"><a href="#Day-1-2019-12-08" class="headerlink" title="Day.1 2019/12/08"></a>Day.1 2019/12/08</h2><h3 id="Q1-页面导入样式时，使用link和-import有什么区别？"><a href="#Q1-页面导入样式时，使用link和-import有什么区别？" class="headerlink" title="Q1. 页面导入样式时，使用link和@import有什么区别？"></a>Q1. 页面导入样式时，使用link和@import有什么区别？</h3><h3 id="1-链接样式"><a href="#1-链接样式" class="headerlink" title="1. 链接样式"></a>1. 链接样式<link></h3><p>HTML外部链接元素(<code>&lt;link&gt;</code>)用于链接当前文档与外部资源，最常用于的就是链接外部样式表（stylesheet），同时也用来创建站点图标（pc端的favicon和移动端的主屏幕图标）<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../styles/main.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span> <span class="attr">sizes</span>=<span class="string">"114x114"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">href</span>=<span class="string">"apple-icon-114.png"</span> <span class="attr">type</span>=<span class="string">"image/png"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>可以通过<code>rel = &quot;preload&quot;</code> 还有许多其他好处。使用 <code>as =</code> 来指定将要预加载的内容的类型，具体参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content" target="_blank" rel="noopener">通过rel=”preload”进行内容预加载</a></p><h3 id="2-导入样式-import"><a href="#2-导入样式-import" class="headerlink" title="2. 导入样式@import"></a>2. 导入样式@import</h3><p><code>@import</code>是CSS<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank" rel="noopener">@规则</a>，只用于样式表的导入，url为要引入的资源，list-of-media-queries为决定引入CSS规则的媒体查询条件<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    @<span class="meta"><span class="meta-keyword">import</span> url list-of-media-queries;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p><h3 id="3-具体区别"><a href="#3-具体区别" class="headerlink" title="3. 具体区别"></a>3. 具体区别</h3><div class="table-container"><table><thead><tr><th>区别</th><th><code>&lt;link&gt;</code></th><th><code>@import</code></th></tr></thead><tbody><tr><td>从属关系</td><td>HTML提供的标签，不仅加载CSS，还能定义RSS、rel连接属性</td><td>CSS提供的语法规则，只负责导入样式表</td></tr><tr><td>加载顺序</td><td>在页面加载时，会同时被加载</td><td>仅在页面加载完后被加载</td></tr><tr><td>兼容性</td><td>作为 HTML 元素，不存在兼容性问题</td><td>CSS2.1 才有的语法，不兼容 IE5 以下</td></tr><tr><td>DOM可控性</td><td>通过js操作DOM插入<code>&lt;link&gt;</code>标签来改变样式</td><td>DOM方法是基于文档的，无法使用<code>@import</code>方式插入样式</td></tr></tbody></table></div><h3 id="0-Reference"><a href="#0-Reference" class="headerlink" title="0. Reference"></a>0. Reference</h3><ol><li>MDN文档：<ol><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link" target="_blank" rel="noopener"><link>元素</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@import" target="_blank" rel="noopener">@import</a></li></ol></li><li>博客文章：<ol><li><a href="https://www.cnblogs.com/my--sunshine/p/6872224.html" target="_blank" rel="noopener">link和@import的区别</a></li></ol></li></ol>]]></content>
       
       
       <categories>
@@ -20,11 +20,11 @@
       
         <tags>
             
-            <tag> 工作面试题 </tag>
-            
             <tag> 刨根问底 </tag>
             
             <tag> HTML </tag>
+            
+            <tag> 前端面试题 </tag>
             
         </tags>
       
@@ -170,9 +170,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> Medium </tag>
             
@@ -195,11 +195,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 动态规划 </tag>
+            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
-            
-            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -220,11 +220,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 动态规划 </tag>
+            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
-            
-            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -369,11 +369,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 动态规划 </tag>
+            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
-            
-            <tag> 动态规划 </tag>
             
             <tag> 分治算法 </tag>
             
@@ -402,11 +402,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> 动态规划 </tag>
+            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
-            
-            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -433,9 +433,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -646,9 +646,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -675,9 +675,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -921,9 +921,9 @@
             
             <tag> 数组 </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
