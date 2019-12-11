@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>[刨根问底]越来越优秀-HTML</title>
-      <link href="/2019/12/08/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-HTML/"/>
-      <url>/2019/12/08/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-HTML/</url>
+      <title>[每天一个知识点]结构布局学习</title>
+      <link href="/2019/12/11/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E7%9F%A5%E8%AF%86%E7%82%B9-%E7%BB%93%E6%9E%84%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2019/12/11/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E7%9F%A5%E8%AF%86%E7%82%B9-%E7%BB%93%E6%9E%84%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<h2 id="Day-1-2019-12-08"><a href="#Day-1-2019-12-08" class="headerlink" title="Day.1 2019/12/08"></a>Day.1 2019/12/08</h2><h3 id="Q1-页面导入样式时，使用link和-import有什么区别？"><a href="#Q1-页面导入样式时，使用link和-import有什么区别？" class="headerlink" title="Q1. 页面导入样式时，使用link和@import有什么区别？"></a>Q1. 页面导入样式时，使用link和@import有什么区别？</h3><h3 id="1-链接样式"><a href="#1-链接样式" class="headerlink" title="1. 链接样式"></a>1. 链接样式<link></h3><p>HTML外部链接元素(<code>&lt;link&gt;</code>)用于链接当前文档与外部资源，最常用于的就是链接外部样式表（stylesheet），同时也用来创建站点图标（pc端的favicon和移动端的主屏幕图标）<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../styles/main.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span> <span class="attr">sizes</span>=<span class="string">"114x114"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">href</span>=<span class="string">"apple-icon-114.png"</span> <span class="attr">type</span>=<span class="string">"image/png"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>可以通过<code>rel = &quot;preload&quot;</code> 还有许多其他好处。使用 <code>as =</code> 来指定将要预加载的内容的类型，具体参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content" target="_blank" rel="noopener">通过rel=”preload”进行内容预加载</a></p><h3 id="2-导入样式-import"><a href="#2-导入样式-import" class="headerlink" title="2. 导入样式@import"></a>2. 导入样式@import</h3><p><code>@import</code>是CSS<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank" rel="noopener">@规则</a>，只用于样式表的导入，url为要引入的资源，list-of-media-queries为决定引入CSS规则的媒体查询条件<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    @<span class="meta"><span class="meta-keyword">import</span> url list-of-media-queries;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p><h3 id="3-具体区别"><a href="#3-具体区别" class="headerlink" title="3. 具体区别"></a>3. 具体区别</h3><div class="table-container"><table><thead><tr><th>区别</th><th><code>&lt;link&gt;</code></th><th><code>@import</code></th></tr></thead><tbody><tr><td>从属关系</td><td>HTML提供的标签，不仅加载CSS，还能定义RSS、rel连接属性</td><td>CSS提供的语法规则，只负责导入样式表</td></tr><tr><td>加载顺序</td><td>在页面加载时，会同时被加载</td><td>仅在页面加载完后被加载</td></tr><tr><td>兼容性</td><td>作为 HTML 元素，不存在兼容性问题</td><td>CSS2.1 才有的语法，不兼容 IE5 以下</td></tr><tr><td>DOM可控性</td><td>通过js操作DOM插入<code>&lt;link&gt;</code>标签来改变样式</td><td>DOM方法是基于文档的，无法使用<code>@import</code>方式插入样式</td></tr></tbody></table></div><h3 id="0-Reference"><a href="#0-Reference" class="headerlink" title="0. Reference"></a>0. Reference</h3><ol><li>MDN文档：<ol><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link" target="_blank" rel="noopener"><link>元素</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@import" target="_blank" rel="noopener">@import</a></li></ol></li><li>博客文章：<ol><li><a href="https://www.cnblogs.com/my--sunshine/p/6872224.html" target="_blank" rel="noopener">link和@import的区别</a></li></ol></li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="0-背景知识-calc"><a href="#0-背景知识-calc" class="headerlink" title="0. 背景知识 calc()"></a>0. 背景知识 calc()</h2><p><code>calc()</code>让你在声明CSS属性值时执行部分运算，注意运算符的两边需要留上空格。</p><p>它能够使用指定的外边距去定位一个对象<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.banner</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">calc</span>(100% - 80px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>或是自动调整表单域的大小来适应它外部容器的大小<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.form</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">calc</span>(100% / 6);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="1-全背景等宽内容居中"><a href="#1-全背景等宽内容居中" class="headerlink" title="1. 全背景等宽内容居中"></a>1. 全背景等宽内容居中</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="comment">/* 等宽内容居中 */</span></span><br><span class="line"><span class="selector-class">.main</span>&gt;<span class="selector-tag">header</span>,</span><br><span class="line"><span class="selector-class">.main</span>&gt;<span class="selector-tag">section</span>,</span><br><span class="line"><span class="selector-class">.main</span>&gt;<span class="selector-tag">footer</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: .<span class="number">1em</span> <span class="built_in">calc</span>(50% - 329px);</span><br><span class="line">    <span class="attribute">text-align</span>: justify;  </span><br><span class="line">    <span class="attribute">hyphens</span>: auto;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><h2 id="2-绝对底部（Sticky-Footer）"><a href="#2-绝对底部（Sticky-Footer）" class="headerlink" title="2. 绝对底部（Sticky Footer）"></a>2. 绝对底部（Sticky Footer）</h2><p>Sticky Footer，一种网页效果，内容不够长footer紧贴窗体最底部，内容够长footer紧贴内容下方<br><img alt data-src="https://i.loli.net/2019/12/10/j8YGuWcQwSR7P4A.png" class="lozad"></p><h3 id="方案一：内容负值的底部margin"><a href="#方案一：内容负值的底部margin" class="headerlink" title="方案一：内容负值的底部margin"></a>方案一：内容负值的底部margin</h3><p>让主体内容的高度等于底部脚本footer值的负值<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span> </span><br><span class="line">        content </span><br><span class="line">        <span class="comment">&lt;!-- 这里添加了一个push用于避免脚本覆盖了内容，同时方便文本内容的插入 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"push"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>; </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.wrapper</span> &#123; </span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">100%</span>; </span><br><span class="line">    <span class="comment">/* 等于底部 footer 高度*/</span></span><br><span class="line">    <span class="comment">/* 同样也应该考虑可能有的子元素的底边距*/</span> </span><br><span class="line">    <span class="attribute">margin-bottom</span>: -<span class="number">50px</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.footer</span>, <span class="selector-class">.push</span> &#123; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案二：脚本负值的头部margin"><a href="#方案二：脚本负值的头部margin" class="headerlink" title="方案二：脚本负值的头部margin"></a>方案二：脚本负值的头部margin</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-inside"</span>&gt;</span> </span><br><span class="line">            content </span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>         </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>; </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.content</span> &#123; </span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content-inside</span> &#123; </span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>; </span><br><span class="line">    <span class="attribute">padding-bottom</span>: <span class="number">50px</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.footer</span> &#123; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>; </span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">50px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案三：calc"><a href="#方案三：calc" class="headerlink" title="方案三：calc()"></a>方案三：calc()</h3><p>通过计算函数<code>calc()</code>计算（视窗高度 - 页脚高度）赋予内容区最小高度<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span> </span><br><span class="line">        content </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;    </span><br><span class="line">    <span class="comment">/* vh -&gt; viewport height（窗口高度） */</span></span><br><span class="line">    <span class="attribute">min-height</span>: <span class="built_in">calc</span>(100vh - 50px); </span><br><span class="line">    <span class="comment">/* 有时候需要将预估的margin-bottom也预估进去一起从窗口高度减去 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.footer</span> &#123;    </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案四：flexbox"><a href="#方案四：flexbox" class="headerlink" title="方案四：flexbox"></a>方案四：flexbox</h3><p>使用flex来设置的好处就是不用固定footer高度<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span> </span><br><span class="line">        content </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;    </span><br><span class="line">    <span class="comment">/* vh -&gt; viewport height（窗口高度） */</span></span><br><span class="line">    <span class="attribute">min-height</span>: <span class="built_in">calc</span>(100vh - 50px); </span><br><span class="line">    <span class="comment">/* 有时候需要将预估的margin-bottom也预估进去一起从窗口高度减去 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.footer</span> &#123;    </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案五-grid"><a href="#方案五-grid" class="headerlink" title="方案五 grid"></a>方案五 grid</h3><p>网格布局Grid Layout的实现方式<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span> </span><br><span class="line">        content </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-tag">body</span> &#123; </span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: grid; </span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">1</span>fr auto; </span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.footer</span> &#123; </span><br><span class="line">    <span class="attribute">grid-row-start</span>: <span class="number">2</span>; </span><br><span class="line">    <span class="attribute">grid-row-end</span>: <span class="number">3</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="3-水平垂直居中（首选方案1、2、5）"><a href="#3-水平垂直居中（首选方案1、2、5）" class="headerlink" title="3. 水平垂直居中（首选方案1、2、5）"></a>3. 水平垂直居中（首选方案1、2、5）</h2><h3 id="方案一：display-flex-margin-auto-不限定宽高"><a href="#方案一：display-flex-margin-auto-不限定宽高" class="headerlink" title="方案一：display: flex + margin: auto 不限定宽高"></a>方案一：<code>display: flex + margin: auto</code> 不限定宽高</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &gt; <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#b4a078</span>;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">padding</span>: .<span class="number">3em</span> <span class="number">1em</span> .<span class="number">5em</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> .<span class="number">5em</span> <span class="number">#b4a078</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案二：display-grid-不限定宽高"><a href="#方案二：display-grid-不限定宽高" class="headerlink" title="方案二：display: grid 不限定宽高"></a>方案二：<code>display: grid</code> 不限定宽高</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &gt; <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#b4a078</span>;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">padding</span>: .<span class="number">3em</span> <span class="number">1em</span> .<span class="number">5em</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> .<span class="number">5em</span> <span class="number">#b4a078</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案三：绝对定位-position-absolute-限定宽高"><a href="#方案三：绝对定位-position-absolute-限定宽高" class="headerlink" title="方案三：绝对定位 position: absolute 限定宽高"></a>方案三：绝对定位 <code>position: absolute</code> 限定宽高</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &gt; <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>; <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#b4a078</span>;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">padding</span>: .<span class="number">3em</span> <span class="number">1em</span> .<span class="number">5em</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> .<span class="number">5em</span> <span class="number">#b4a078</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">72px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案四：绝对定位-position-absolute-calc-限定宽高"><a href="#方案四：绝对定位-position-absolute-calc-限定宽高" class="headerlink" title="方案四：绝对定位 position: absolute + calc() 限定宽高"></a>方案四：绝对定位 <code>position: absolute + calc()</code> 限定宽高</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &gt; <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(50% - 16px); </span><br><span class="line">    <span class="attribute">left</span>: <span class="built_in">calc</span>(50% - 72px);</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#b4a078</span>;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">padding</span>: .<span class="number">3em</span> <span class="number">1em</span> .<span class="number">5em</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> .<span class="number">5em</span> <span class="number">#b4a078</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案五：绝对定位-position-absolute-translate-不限定宽高"><a href="#方案五：绝对定位-position-absolute-translate-不限定宽高" class="headerlink" title="方案五：绝对定位 position: absolute + translate 不限定宽高"></a>方案五：绝对定位 <code>position: absolute + translate</code> 不限定宽高</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-tag">main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &gt; <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>; <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#b4a078</span>;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">padding</span>: .<span class="number">3em</span> <span class="number">1em</span> .<span class="number">5em</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> .<span class="number">5em</span> <span class="number">#b4a078</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="方案六：仿table布局-display-table-table-cell-vertical-align-middle-不限定宽高"><a href="#方案六：仿table布局-display-table-table-cell-vertical-align-middle-不限定宽高" class="headerlink" title="方案六：仿table布局 display: table/table-cell + vertical-align: middle 不限定宽高"></a>方案六：仿table布局 <code>display: table/table-cell + vertical-align: middle</code> 不限定宽高</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined">5</span></span><br><span class="line"><span class="undefined">  main &#123;</span></span><br><span class="line"><span class="undefined">    width: 100%;</span></span><br><span class="line"><span class="undefined">    height: 152px;</span></span><br><span class="line"><span class="undefined">    display: table;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">main &gt; div &#123;</span></span><br><span class="line"><span class="undefined">    display: table-cell;</span></span><br><span class="line"><span class="undefined">    text-align: center;</span></span><br><span class="line"><span class="undefined">    vertical-align: middle;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">main &gt; div &gt; span &#123;</span></span><br><span class="line"><span class="undefined">    width: 50%;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#b4a078</span>;</span></span><br><span class="line"><span class="undefined">    color: white;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">padding</span>: <span class="selector-class">.3em</span> 1<span class="selector-tag">em</span> <span class="selector-class">.5em</span>;</span></span><br><span class="line"><span class="undefined">    border-radius: 3px;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">box-shadow</span>: 0 0 <span class="selector-class">.5em</span> <span class="selector-id">#b4a078</span>;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Center me, please!<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="方案七：伪元素-after-vertical-align-middle-不限定宽高"><a href="#方案七：伪元素-after-vertical-align-middle-不限定宽高" class="headerlink" title="方案七：伪元素 :after + vertical-align:middle 不限定宽高"></a>方案七：伪元素 :<code>after + vertical-align:middle</code> 不限定宽高</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  main &#123;</span></span><br><span class="line"><span class="undefined">    width: 100%;</span></span><br><span class="line"><span class="undefined">    height: 152px;</span></span><br><span class="line"><span class="undefined">    text-align: center;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">main</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">content</span><span class="selector-pseudo">:''</span>;</span></span><br><span class="line"><span class="undefined">    display: inline-block;</span></span><br><span class="line"><span class="undefined">    height: 100%;</span></span><br><span class="line"><span class="undefined">    vertical-align: middle;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  main &gt; span &#123;</span></span><br><span class="line"><span class="undefined">    /* display: inline-block;</span></span><br><span class="line"><span class="undefined">    vertical-align: middle; */</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#b4a078</span>;</span></span><br><span class="line"><span class="undefined">    color: white;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">padding</span>: <span class="selector-class">.3em</span> 1<span class="selector-tag">em</span> <span class="selector-class">.5em</span>;</span></span><br><span class="line"><span class="undefined">    border-radius: 3px;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">box-shadow</span>: 0 0 <span class="selector-class">.5em</span> <span class="selector-id">#b4a078</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>Center me, please!<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="4-圣杯布局"><a href="#4-圣杯布局" class="headerlink" title="4. 圣杯布局"></a>4. 圣杯布局</h2><p>两边等宽，中间自适应的三栏布局<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p><p>用grid实现圣杯布局<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.mainbody</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-areas</span>: <span class="string">"header header header"</span></span><br><span class="line">                        <span class="string">"navigation main ads"</span></span><br><span class="line">                        <span class="string">"footer footer footer"</span>;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">150px</span> <span class="number">1</span>fr <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> </span><br><span class="line">                        <span class="number">1</span>fr</span><br><span class="line">                        <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 移动端 */</span></span><br><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">600px</span>) &#123;</span><br><span class="line"><span class="selector-class">.mainbody</span> &#123;</span><br><span class="line">    <span class="attribute">grid-template-areas</span>: <span class="string">"header"</span></span><br><span class="line">                         <span class="string">"navigation"</span></span><br><span class="line">                         <span class="string">"main"</span></span><br><span class="line">                         <span class="string">"ads"</span></span><br><span class="line">                         <span class="string">"footer"</span>;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> Header</span><br><span class="line">                        <span class="number">50px</span> <span class="comment">/* Navigation */</span></span><br><span class="line">                        <span class="number">1</span>fr <span class="comment">/* Main Content */</span></span><br><span class="line">                        <span class="number">50px</span> <span class="comment">/* Ads */</span></span><br><span class="line">                        <span class="number">30px</span>; <span class="comment">/* Footer */</span></span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><img alt data-src="https://i.loli.net/2019/12/10/NZwXiqUyMJQ1R8j.png" class="lozad"></p><h3 id="5-双飞翼布局"><a href="#5-双飞翼布局" class="headerlink" title="5. 双飞翼布局"></a>5. 双飞翼布局</h3><p>此布局的需求同圣杯布局一样，都为两边等宽，中间自适应的三栏布局</p><h3 id="6-类订单布局"><a href="#6-类订单布局" class="headerlink" title="6. 类订单布局"></a>6. 类订单布局</h3><p>左侧高度不固定，右侧高度自适应并居中</p><h3 id="7-flex布局"><a href="#7-flex布局" class="headerlink" title="7. flex布局"></a>7. flex布局</h3><p>Flexible Box模型（flexbox），是一种一维的布局模型。flex布局具有两根轴线——<code>flex-direction</code>决定的主轴和垂直于它的交叉轴。</p><h4 id="更改flex方向-flex-direction属性"><a href="#更改flex方向-flex-direction属性" class="headerlink" title="更改flex方向 flex-direction属性"></a>更改flex方向 flex-direction属性</h4><blockquote><p>row(初始值)：水平方向，从左到右<br>row-reverse：水平方向，从右向左<br>column：垂直方向，从上向下<br>column-reverse：垂直方向，从下向上排列</p></blockquote><p>我们管flexbox的区域为flex容器，即<code>display:flex/inline-flex;</code>的区域。初始条件下，内部flex元素均满足：</p><ul><li>元素排列为一行 (flex-direction 属性的初始值是 row)。</li><li>元素从主轴的起始线开始。</li><li>元素不会在主维度方向拉伸，但是可以缩小。</li><li>元素被拉伸来填充交叉轴大小。</li><li>flex-basis 属性为 auto。</li><li>flex-wrap 属性为 nowrap。<h4 id="实现换行-flex-wrap属性"><a href="#实现换行-flex-wrap属性" class="headerlink" title="实现换行 flex-wrap属性"></a>实现换行 flex-wrap属性</h4>当行内元素过多，容器单行无法满足时，<code>flex-wrap</code>可以实现换行显示<blockquote><p>nowrap(默认值)：不换行，进行缩小适应<br>wrap：换行，第一行在上方<br>row-reverse：换行，第一行在下方</p></blockquote></li></ul><p><code>flex-direction</code>和<code>flex-wrap</code>可以简写为<code>flex-glow</code>属性</p><h4 id="flex元素属性：flex-grow"><a href="#flex元素属性：flex-grow" class="headerlink" title="flex元素属性：flex-grow"></a>flex元素属性：flex-grow</h4><p>定义了元素的伸张比例，按比例分配空间</p><blockquote><p><number>: 值越大元素占据空间越大，默认值为0</number></p></blockquote><h4 id="flex元素属性：flex-shrink"><a href="#flex元素属性：flex-shrink" class="headerlink" title="flex元素属性：flex-shrink"></a>flex元素属性：flex-shrink</h4><p>定义了元素的收缩比例，按比例分配空间</p><blockquote><p><number>: 值越大元素占据空间越小，默认值为0</number></p></blockquote><h4 id="flex元素属性：flex-basis"><a href="#flex元素属性：flex-basis" class="headerlink" title="flex元素属性：flex-basis"></a>flex元素属性：flex-basis</h4><p>定义在分配多余空间之前（即伸缩之前），元素占据的主轴空间</p><blockquote><p><length>：默认值为auto，当不设置具体宽高时采用原始尺寸</length></p></blockquote><h4 id="三种元素属性的简写-flex"><a href="#三种元素属性的简写-flex" class="headerlink" title="三种元素属性的简写 flex"></a>三种元素属性的简写 flex</h4><p>flex能够将以上三种元素属性数值进行简写为：<code>flex: flex-grow flex-shrink flex-basis;</code><br>flex有其预定义的简写形式</p><blockquote><p>initial：相当于<code>flex: 0 1 auto</code><br>auto：相当于<code>flex: 1 1 auto</code><br>none：相当于<code>flex：0 0 auto</code></p><p><number>(某一正数)：相当于<code>flex: n n 0</code></number></p></blockquote><h4 id="交叉轴方向对齐-align-items属性"><a href="#交叉轴方向对齐-align-items属性" class="headerlink" title="交叉轴方向对齐 align-items属性"></a>交叉轴方向对齐 align-items属性</h4><blockquote><p>flex-start：交叉轴的起点对齐<br>flex-end：交叉轴的终点对齐<br>cente：交叉轴的中心对齐<br>baseline：项目第一行文字的基线对齐<br>stretch(默认值)：项目未设置固定高度时，将占满整个容器</p></blockquote><h4 id="主轴方向对齐-justify-content"><a href="#主轴方向对齐-justify-content" class="headerlink" title="主轴方向对齐 justify-content"></a>主轴方向对齐 justify-content</h4><blockquote><p>flex-start(默认值)：左对齐<br>flex-end：右对齐<br>center：居中<br>space-evenly：每个项目之间及与两端的间隔都相等<br>space-around：每个项目与两侧间隔相等<br>space-between：两端对齐贴合，项目之间间隔相等</p></blockquote><h4 id="多根轴线之间对齐方式-align-content"><a href="#多根轴线之间对齐方式-align-content" class="headerlink" title="多根轴线之间对齐方式 align-content"></a>多根轴线之间对齐方式 align-content</h4><blockquote><p>flex-start：交叉轴的起点对齐<br>flex-end：交叉轴的终点对齐<br>center：交叉轴的中心对齐<br>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布等<br>space-around：每根轴线两侧的间隔都相<br>stretch(默认值)：轴线占满整个交叉轴</p></blockquote><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol><li>MDN文档<ol><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/calc" target="_blank" rel="noopener">calc()函数</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex" target="_blank" rel="noopener">flex布局</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/insertBefore" target="_blank" rel="noopener">Node.insertBefore()</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid" target="_blank" rel="noopener">grid网格结构</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/vertical-align" target="_blank" rel="noopener">vertical-align</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor" target="_blank" rel="noopener">悬浮上方鼠标样式cursor</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank" rel="noopener">CSS弹性盒子布局：flexbox</a></li></ol></li><li>博客文章<ol><li><a href="https://lhammer.cn/You-need-to-know-css/#/zh-cn/" target="_blank" rel="noopener">You-need-to-know-css</a> </li><li><a href="https://css-tricks.com/couple-takes-sticky-footer/" target="_blank" rel="noopener">Sticky Footer, Five Ways</a></li><li><a href="https://aotu.io/notes/2017/04/13/Sticky-footer/index.html" target="_blank" rel="noopener">Sticky Footer，完美的绝对底部</a></li><li><a href="http://ireade.github.io/holy-grail-css-grid/" target="_blank" rel="noopener">The Holy Grail Layout with CSS Grid</a></li><li><a href="https://alligator.io/css/css-grid-holy-grail-layout/" target="_blank" rel="noopener">CSS Grid: Holy Grail Layout</a></li><li><a href="https://www.zhihu.com/question/21504052/answer/50053054" target="_blank" rel="noopener">知乎：CSS布局中圣杯布局与双飞翼布局的实现思路差异在哪里？</a></li><li><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></li></ol></li></ol>]]></content>
       
       
       <categories>
@@ -20,11 +20,98 @@
       
         <tags>
             
+            <tag> 前端面试题 </tag>
+            
+            <tag> CSS </tag>
+            
+            <tag> 每天一个知识点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[刨根问底]-越来越优秀-JavaScript</title>
+      <link href="/2019/12/09/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-JavaScript/"/>
+      <url>/2019/12/09/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-JavaScript/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端面试题 </tag>
+            
+            <tag> 刨根问底 </tag>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[刨根问底]-越来越优秀-CSS</title>
+      <link href="/2019/12/09/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-CSS/"/>
+      <url>/2019/12/09/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-CSS/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端面试题 </tag>
+            
+            <tag> 刨根问底 </tag>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[刨根问底]越来越优秀-HTML</title>
+      <link href="/2019/12/08/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-HTML/"/>
+      <url>/2019/12/08/%E5%88%A8%E6%A0%B9%E9%97%AE%E5%BA%95-%E8%B6%8A%E6%9D%A5%E8%B6%8A%E4%BC%98%E7%A7%80-HTML/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Day-1-2019-12-08"><a href="#Day-1-2019-12-08" class="headerlink" title="Day.1 2019/12/08"></a>Day.1 2019/12/08</h2><h3 id="Q1-页面导入样式时，使用link和-import有什么区别？"><a href="#Q1-页面导入样式时，使用link和-import有什么区别？" class="headerlink" title="Q1. 页面导入样式时，使用link和@import有什么区别？"></a>Q1. 页面导入样式时，使用link和@import有什么区别？</h3><h3 id="1-链接样式"><a href="#1-链接样式" class="headerlink" title="1. 链接样式"></a>1. 链接样式<link></h3><p>HTML外部链接元素(<code>&lt;link&gt;</code>)用于链接当前文档与外部资源，最常用于的就是链接外部样式表（stylesheet），同时也用来创建站点图标（pc端的favicon和移动端的主屏幕图标）<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../styles/main.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span> <span class="attr">sizes</span>=<span class="string">"114x114"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">href</span>=<span class="string">"apple-icon-114.png"</span> <span class="attr">type</span>=<span class="string">"image/png"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>可以通过<code>rel = &quot;preload&quot;</code> 还有许多其他好处。使用 <code>as =</code> 来指定将要预加载的内容的类型，具体参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content" target="_blank" rel="noopener">通过rel=”preload”进行内容预加载</a></p><h3 id="2-导入样式-import"><a href="#2-导入样式-import" class="headerlink" title="2. 导入样式@import"></a>2. 导入样式@import</h3><p><code>@import</code>是CSS<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank" rel="noopener">@规则</a>，只用于样式表的导入，url为要引入的资源，list-of-media-queries为决定引入CSS规则的媒体查询条件<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    @<span class="meta"><span class="meta-keyword">import</span> url list-of-media-queries;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p><h3 id="3-具体区别"><a href="#3-具体区别" class="headerlink" title="3. 具体区别"></a>3. 具体区别</h3><div class="table-container"><table><thead><tr><th>区别</th><th><code>&lt;link&gt;</code></th><th><code>@import</code></th></tr></thead><tbody><tr><td>从属关系</td><td>HTML提供的标签，不仅加载CSS，还能定义RSS、rel连接属性</td><td>CSS提供的语法规则，只负责导入样式表</td></tr><tr><td>加载顺序</td><td>在页面加载时，会同时被加载</td><td>仅在页面加载完后被加载</td></tr><tr><td>兼容性</td><td>作为 HTML 元素，不存在兼容性问题</td><td>CSS2.1 才有的语法，不兼容 IE5 以下</td></tr><tr><td>DOM可控性</td><td>通过js操作DOM插入<code>&lt;link&gt;</code>标签来改变样式</td><td>DOM方法是基于文档的，无法使用<code>@import</code>方式插入样式</td></tr></tbody></table></div><h3 id="0-Reference"><a href="#0-Reference" class="headerlink" title="0. Reference"></a>0. Reference</h3><ol><li>MDN文档：<ol><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link" target="_blank" rel="noopener"><code>&lt;link&gt;</code>元素</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@import" target="_blank" rel="noopener">@import</a></li></ol></li><li>博客文章：<ol><li><a href="https://www.cnblogs.com/my--sunshine/p/6872224.html" target="_blank" rel="noopener">link和@import的区别</a></li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端面试题 </tag>
+            
             <tag> 刨根问底 </tag>
             
             <tag> HTML </tag>
-            
-            <tag> 前端面试题 </tag>
             
         </tags>
       
@@ -170,9 +257,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> Medium </tag>
             
@@ -195,11 +282,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -220,11 +307,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -369,11 +456,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 分治算法 </tag>
             
@@ -402,11 +489,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 数组 </tag>
             
             <tag> Easy </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -433,9 +520,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -615,9 +702,9 @@
             
             <tag> 数组 </tag>
             
-            <tag> 二分查找 </tag>
-            
             <tag> 分治算法 </tag>
+            
+            <tag> 二分查找 </tag>
             
             <tag> Hard </tag>
             
@@ -646,9 +733,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -675,9 +762,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -797,9 +884,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 数学 </tag>
             
@@ -830,9 +917,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
@@ -921,9 +1008,9 @@
             
             <tag> 数组 </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
