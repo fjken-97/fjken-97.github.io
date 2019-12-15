@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>形成自己的配图体系</title>
+      <link href="/2019/12/15/%E5%BD%A2%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E9%85%8D%E5%9B%BE%E4%BD%93%E7%B3%BB/"/>
+      <url>/2019/12/15/%E5%BD%A2%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E9%85%8D%E5%9B%BE%E4%BD%93%E7%B3%BB/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文章配图的意义，在于能够简要清晰的传达给读者作者ta所需要表述的观点或细节层面的阐述，在阅读体验上可以给读者带来更加直观的体验，同时在制图的过程中也是自己对于知识点的一次系统的概述性总结，我个人在过去的时间里其实对于配图并不是相当的在意，但当我接触过Xmind去制作知识图谱以后，我愈发觉得其实给技术文章制图配图的过程，有时候也是可以如此的有趣且收获颇多。</p><p>那接下来就进入学习环节吧（选择性摘录博主观点并谈谈自己的看法）:D</p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote><p>『你的图是用什么工具画的？』，我不认为工具在帮助我们配图时起到了决定性的作用，更加重要的其实是我们对于<strong>制图规则</strong>的思考并形成<strong>一套自恰的体系</strong>。</p></blockquote><p>关于制图，确实工具的选择没有自己确定的制图规范来的重要，一套成体系的规范不仅在制图过程中会加快速度，同时后续回看也会更加的易读。</p><blockquote><p>对制图规则的设计，其中有几个准则是非常重要的：</p><ol><li>图片必须足够美观并且清晰地传达想要表现的内容；<ol><li>是技术博客中出现图片的意义；</li></ol></li><li>图片必须能够在短时间内实现量产，不影响写作的效率；<ol><li>博客中的全部图片都是在写作的过程中一一绘制的，而不是最后统一完成的，所以会希望画图的时间可以尽量短，一旦画图的时间超过过长，那么整个思路就会被打断；</li><li>博客的内容和逻辑相比于图片更加重要，作者不希望在上面花费过长的时间；</li></ol></li><li>图片需要保证风格上的一致性，不会显得非常突兀；<ol><li>图片的风格和配色对于作者来说就是签名，形成统一的风格之后会给读者留下比较深的印象；</li></ol></li></ol></blockquote><h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><blockquote><p>为技术文章绘制图片和使用 PS 修改图片、为 App 绘制 UI 设计图是完全不同的，技术文章的配图主要作用还是为了辅助说明内容，图画的再好看如果不能很好地解释问题都没有太多的作用，相比于图片的样式，我们应该更加关注图片的内容是否清晰和简单。</p></blockquote><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><blockquote><p>图片的内容是配图时至关重要的，作者在一个问题太过复杂或者连续的文字过多时，就会选择为文章插入适合的图片，内容作为博客中插图的核心，我们需要清楚地知道需要表达什么</p></blockquote><p>在需要展示某个问题的多个方面、多个原因或者阶段等处于相同层次的概念时就会使用如下所示的图片：<br><img alt data-src="https://i.loli.net/2019/12/15/KRnqr6IvMNU4jXa.png" class="lozad"><br>展示不同概念或者模块之间的关系，流程图、架构图等类型的图片：<br><img alt data-src="https://i.loli.net/2019/12/15/9qBe8IVxsHPF1wS.png" class="lozad"><br><img alt data-src="https://i.loli.net/2019/12/15/SshiYgeFfEb2Q7M.png" class="lozad"><br>展示层次模型等的图片：<br><img alt data-src="https://i.loli.net/2019/12/15/odOqTKFDzAE1Nc7.png" class="lozad"></p><h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a>配色</h3><p>选择<a href="https://colorhunt.co/palette/7642" target="_blank" rel="noopener">配色体系</a><br><img alt data-src="https://i.loli.net/2019/12/15/X7AMLvYrHPy4RQm.png" class="lozad"></p><h3 id="图片长宽"><a href="#图片长宽" class="headerlink" title="图片长宽"></a>图片长宽</h3><p>比较关键的问题：</p><ol><li>保证图片的宽度一定，长度不要太长；</li><li>保证图片的大小被合理利用；</li></ol><p>目前作者博客的图片宽度都是 <code>1200px</code>（ 我个人小破站默认为<code>900px</code></p><h2 id="字号"><a href="#字号" class="headerlink" title="字号"></a>字号</h2><ol><li>图片标题的字号<code>31px</code>；</li><li>图片非标题的字号 <code>18~20px</code>；</li></ol><h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><p>作者一般会选择 <code>15px</code>以下的圆角</p><blockquote><p>画图的工具并不重要，重要的其实是你应该如何形成自己的规则体系，想要为博客配图并不是一件困难的事情，比较困难的是长期坚持并且经常思考，对自己形成的规则不断改善，最终就一定能够做好。</p></blockquote><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://draveness.me/sketch-and-sketch" target="_blank" rel="noopener">技术文章配图指南</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[每天一个知识点]结构布局学习</title>
       <link href="/2019/12/11/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E7%9F%A5%E8%AF%86%E7%82%B9-%E7%BB%93%E6%9E%84%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0/"/>
       <url>/2019/12/11/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E7%9F%A5%E8%AF%86%E7%82%B9-%E7%BB%93%E6%9E%84%E5%B8%83%E5%B1%80%E5%AD%A6%E4%B9%A0/</url>
@@ -259,9 +284,9 @@
             
             <tag> 数组 </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> Medium </tag>
             
         </tags>
       
@@ -396,9 +421,9 @@
             
             <tag> 分治算法 </tag>
             
-            <tag> Hard </tag>
-            
             <tag> 最小堆 </tag>
+            
+            <tag> Hard </tag>
             
         </tags>
       
@@ -669,9 +694,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Medium </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> Medium </tag>
             
             <tag> 字符串 </tag>
             
@@ -884,9 +909,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 链表 </tag>
             
             <tag> 数学 </tag>
             
@@ -917,9 +942,9 @@
             
             <tag> 双指针 </tag>
             
-            <tag> 链表 </tag>
-            
             <tag> Medium </tag>
+            
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -1159,7 +1184,7 @@
       
       <categories>
           
-          <category> 科普 </category>
+          <category> 生活 </category>
           
       </categories>
       
