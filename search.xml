@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>我是否可以摆脱午睡</title>
+      <link href="/2019/12/18/%E6%88%91%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%91%86%E8%84%B1%E5%8D%88%E7%9D%A1/"/>
+      <url>/2019/12/18/%E6%88%91%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%91%86%E8%84%B1%E5%8D%88%E7%9D%A1/</url>
+      
+        <content type="html"><![CDATA[<p>一直以来其实自己都有这么一个困惑：<strong>我是否可以摆脱午睡？</strong> 每每准确地到达那个时间段时，疲惫也好、心理暗示也罢，总会催促着自己赶紧上床歇息，于是乎两个小时就这么过去了（不得不在这里提一下，我是一位极易睡到恍惚的人，甚至自己会在不自觉地情况下按掉闹钟，所以每当下午有重要事宜的时候，我甚至会害怕自己去午睡，我真的太难了）</p><p>为什么很多西方人不午睡下午也能满血状态的工作呢？难道不应该是传统的午休（我好难做到的qwq）下午才会来的更加精神饱满吗？这样的问题不止一次出现在我的每日一问当中。</p><p>看了知友们的回答，立脚点各不相同，众说纷纭的解释都有待自己亲身去检验，所以我估计后续会有一个自己的计划表，检验下是否能够让自己摆脱午睡的厄运，哈哈</p><p>Schedules（2019/12/18）：</p><ol><li><strong>饭前一大杯水</strong>，产生饱腹感，同时午餐尽量保持在7-8分饱；</li><li><strong>coffee</strong> or <strong>tea</strong>，每天间歇性饮用</li><li><strong>饭后散步</strong>一小会，减少疲惫感</li><li><strong>紧迫的工作观念</strong>，说实话这是我后续工作迫切需要加强的一点</li><li><strong>坚持</strong>就是胜利，奥里给！</li></ol><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li>知乎话题讨论：<a href="https://www.zhihu.com/question/25569759" target="_blank" rel="noopener">“为什么很多欧洲人和美国人不午睡下午还能满血状态工作？”</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue.js文档学习</title>
       <link href="/2019/12/16/Vue-js%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/"/>
       <url>/2019/12/16/Vue-js%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
@@ -307,9 +332,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -332,9 +357,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -357,9 +382,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 二分查找 </tag>
             
@@ -481,9 +506,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -514,9 +539,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 数组 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 动态规划 </tag>
             
@@ -574,11 +599,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -605,11 +630,11 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -636,13 +661,13 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -758,9 +783,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -787,9 +812,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> 哈希表 </tag>
-            
             <tag> Easy </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -971,9 +996,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Easy </tag>
-            
             <tag> 树 </tag>
+            
+            <tag> Easy </tag>
             
         </tags>
       
@@ -1031,11 +1056,11 @@
             
             <tag> Leetcode </tag>
             
+            <tag> Easy </tag>
+            
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
-            
-            <tag> Easy </tag>
             
         </tags>
       
